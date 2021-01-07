@@ -1,0 +1,16 @@
+@mixin responsive($screen) {
+  // map: tên mảng cần duyệt
+  @if (map-has-key($map: $breakpoints, $key: $screen)) {
+    // nếu tên màn hình đúng thì lấy giá trị
+    // lấy kích thướt màn hình dựa vào tên màn hình
+    $value: map-get(
+      $map: $breakpoints,
+      $key: $screen,
+    );
+    @media screen and(max-width: $value) {
+      @content;
+    }
+  } @else {
+    @warn 'Màn hình không tồn tại';
+  }
+}

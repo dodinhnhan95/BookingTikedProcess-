@@ -1,0 +1,25 @@
+.fontRapChieu {
+  font-family: sans-serif, "roboto";
+}
+.componentTinTuc {
+  background: linear-gradient(to top, rgb(209, 209, 209), whitesmoke);
+}
+.phimDangChieu {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.1px;
+  color: black;
+  text-shadow: 5px 5px 10px orange;
+}
+.phimDangChieu:hover {
+  background-image: linear-gradient(to right, #fbbd61, #ec7532);
+  color: transparent;
+  -webkit-background-clip: text;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+.carousel1 {
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 40px;
+}

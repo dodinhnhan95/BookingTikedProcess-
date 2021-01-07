@@ -1,0 +1,590 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  letter-spacing: 0.9px;
+}
+
+html,
+body {
+  font-family: sans-serif, "Roboto";
+}
+
+.fontRapChieu {
+  font-family: sans-serif, "roboto";
+}
+
+.componentTinTuc {
+  background: linear-gradient(to top, #d1d1d1, whitesmoke);
+}
+
+.phimDangChieu {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.1px;
+  color: black;
+}
+
+.phimDangChieu:hover {
+  background-image: linear-gradient(to right, #fbbd61, #ec7532);
+  color: transparent;
+  -webkit-background-clip: text;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.hinhCarousel {
+  width: 48rem;
+  height: 25rem;
+}
+
+.banner {
+  display: flex;
+  font-size: 5rem;
+}
+
+.cardText {
+  position: relative;
+  width: 100%;
+  height: 22rem;
+  color: white;
+}
+
+.btnDatVe {
+  width: 100%;
+  padding: 0px 20px;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.btnDatVe p {
+  width: 100%;
+  padding: 10% 0;
+  border: 1px solid whitesmoke;
+  border-radius: 10px;
+  transition: all 0.5;
+}
+
+.btnDatVe p:hover {
+  background-color: rgba(207, 203, 203, 0.5);
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.playBtn {
+  width: 35%;
+  padding-top: 45%;
+  color: white;
+  transition: all 0.5;
+}
+
+.playBtn:hover {
+  opacity: 0.5;
+}
+
+.cardPhim {
+  cursor: pointer;
+  width: 100%;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.hinhPhim {
+  width: 100%;
+  height: 22rem;
+}
+
+.cardNameFilm {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  width: 100%;
+  height: 3.2rem;
+  background-color: orange;
+}
+
+.itemName {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+#swiperContainer2 {
+  padding: 0rem 5rem;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+/* Popup container */
+.popup {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 30px;
+  transition: all 0.5s;
+  display: grid;
+  grid-template-columns: repeat(2 1fr);
+  gap: 5px;
+  text-align: center;
+  justify-items: center;
+  transition: all 0.5;
+}
+
+.cardText:hover .popup {
+  display: block;
+  z-index: 10;
+  animation: fadeIn 0.5s;
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+/* The actual popup (appears on top) */
+.popup .popuptext {
+  visibility: hidden;
+  background-color: rgba(85, 85, 85, 0.5);
+  color: #fff;
+  text-align: center;
+  position: absolute;
+  z-index: 99999;
+  bottom: 0%;
+  left: 0%;
+  margin-left: 0;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+.popup .show {
+  visibility: visible;
+  animation: fadeIn 1s;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Add animation (fade in the popup) */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fa {
+  position: absolute;
+}
+
+.slider {
+  display: "grid";
+  grid-template-columns: repeat(4, 1fr);
+  text-align: center;
+  margin: 0 auto;
+  width: "100%";
+  gap: 2%;
+}
+
+.itemFilm {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#navbar {
+  position: fixed;
+  /* Make it stick/fixed */
+  top: 0;
+  /* Stay on top */
+  width: 100%;
+  /* Full width */
+  transition: top 0.5s;
+  /* Transition effect when sliding down (and up) */
+  z-index: 100;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+#navbar {
+  border-radius: 25px;
+  padding-left: 20px;
+  height: 4rem;
+  display: inline-flex;
+  background-color: rgba(243, 240, 240, 0.4);
+  backdrop-filter: blur(10px);
+  align-items: center;
+  padding: 0 10px;
+  margin: 10px 0 0 0;
+}
+
+#navbar .nav-link {
+  list-style: none;
+  color: white;
+  font-family: sans-serif;
+  letter-spacing: 0.1;
+  font-weight: bolder;
+  padding: 12px 20px;
+  margin: 0 8px;
+  position: relative;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+#navbar .nav-link .h3 {
+  font-size: 15px;
+}
+
+#navbar .nav-link::before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  transition: 0.2s;
+  border-radius: 25px;
+}
+
+#navbar .nav-link:hover {
+  color: black;
+}
+
+#navbar .nav-link:hover::before {
+  background: linear-gradient(to right, #fbbd61, #ec7532);
+  box-shadow: 0px 3px 20px 0px black;
+  transform: scale(1.2);
+}
+
+.deMuc {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.tenHangPhim {
+  color: white;
+  font-size: 30px;
+  font-weight: 700;
+  margin-right: 10px;
+  transition: all 0.8s;
+  background-image: linear-gradient(to right, #fbbd61, #ec7532);
+  color: transparent;
+  -webkit-background-clip: text;
+  cursor: pointer;
+}
+
+.tenHangPhim:hover {
+  background-image: linear-gradient(to right, #ec7532, #fbbd61);
+  color: transparent;
+  -webkit-background-clip: text;
+  transition: all 0.8s;
+}
+
+.icon {
+  float: right;
+  display: none;
+}
+
+li {
+  position: relative;
+}
+
+@media only screen and (max-width: 768px) {
+  #thanhTacVu {
+    display: none;
+  }
+  #thanhTacVu.active {
+    margin: 0;
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 50px;
+    right: 0px;
+    display: block;
+  }
+  #thanhTacVu li {
+    display: block;
+    text-align: center;
+    border-bottom: 1px solid white;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  .icon {
+    display: block;
+    font-size: 2rem;
+    color: #fff;
+  }
+}
+
+.carousel2 {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  margin: 0;
+  padding-top: 10rem;
+}
+
+.swiperContainer {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background: linear-gradient(to top, whitesmoke, black);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.swiper-slide {
+  background-position: left;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+
+.carouselChild {
+  margin-top: 7%;
+  padding-bottom: 2rem;
+}
+
+.bangHienLich {
+  font-family: sans-serif;
+  border-radius: 4px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+table {
+  border-top: 2px solid #e7e2e2;
+  background: linear-gradient(to right, whitesmoke, rgba(71, 71, 71, 0.5));
+  margin-bottom: 0px;
+}
+
+.bangCumRap {
+  height: 650px;
+  overflow: scroll;
+  border-radius: 4px;
+}
+
+.loGo {
+  border-bottom: 1px solid #dbd0d0;
+  height: 6rem;
+  cursor: pointer;
+}
+
+.diaChiCum {
+  font-size: 13px;
+}
+
+.hinhPhimChieu {
+  width: 25%;
+  height: 100%;
+}
+
+.lichChieu {
+  display: flex;
+  justify-content: flex-start;
+  gap: 5px;
+  padding: 8px 5px;
+  font-size: 15px;
+  font-weight: bold;
+  color: black;
+  border-bottom: 1px solid #dbd0d0;
+  height: 8rem;
+}
+
+.tenDiaChiCum {
+  border-bottom: 1px solid #dbd0d0;
+  color: #e98c13;
+  cursor: pointer;
+}
+
+.tieuDeTTLC {
+  font-size: 1.8rem;
+  font-weight: 700;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  letter-spacing: 0.1px;
+  background-image: linear-gradient(to right, rgba(7, 7, 7, 0.5), #444444);
+  color: transparent;
+  -webkit-background-clip: text;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+td {
+  border-top: 2px solid #e7e2e2;
+  border: 1px solid #e7e2e2;
+}
+
+tr {
+  border: 1px solid #e7e2e2;
+}
+
+.iconHTCum {
+  width: 10%;
+}
+
+.iconTenCum {
+  width: 50%;
+}
+
+.iconPhimDangChieu {
+  width: 40%;
+}
+
+.Tintuc {
+  font-family: sans-serif;
+  width: 70%;
+}
+
+.tieuDeTT {
+  font-weight: bolder;
+}
+
+.tinTucItem {
+  text-align: left;
+  display: block;
+  padding: 4px 4px;
+}
+
+.imgItem {
+  width: 100%;
+}
+
+.noiDungTin {
+  font-size: 13px;
+  font-weight: lighter;
+  color: #585858;
+}
+
+.tinNho {
+  margin-bottom: 10px;
+}
+
+.imgItem2 {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+}
+
+.noiDungTin2 {
+  font-size: 14px;
+  color: #181717;
+}
+
+.noiDungTin2:hover {
+  color: #f13c04;
+  transition: all 0.5s;
+}
+
+.ungDung {
+  background: url("../../img/BackGround.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 40rem;
+}
+
+.ungDungItem {
+  padding-top: 8%;
+}
+
+.gachChan {
+  text-decoration-line: underline;
+}
+
+.mobile {
+  height: 28rem;
+}
+
+.itemMobile {
+  text-align: left;
+  padding-left: 8%;
+}
+
+.itemThongTinUngDung {
+  padding: 4.5%;
+  padding-left: 10%;
+}
+
+.footerComponent {
+  background-color: #302f2f;
+}
+
+.doRong {
+  width: 80%;
+}
+
+.itemFooter {
+  font-size: 12px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  color: #858181;
+}
+
+.itemFooter li {
+  list-style: none;
+}
+
+.itemP a {
+  text-decoration: none;
+  color: #858181;
+  padding-bottom: 5px;
+  cursor: pointer;
+}
+
+.itemP a:hover {
+  color: white;
+  transition: all 0.5s;
+}
+
+.itemPic {
+  text-decoration: none;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.footerInfor {
+  margin: 0 auto;
+  width: 80%;
+  border-top: 0.1px solid white;
+}
+
+.itemFinal {
+  border-radius: 4px;
+  margin: 10px;
+  width: 60px;
+}
+
+.inforCompany span {
+  font-size: 15px;
+}
+
+.inforCompany p {
+  font-size: 10px;
+  color: #858181;
+}
+/*# sourceMappingURL=App.css.map */

@@ -1,0 +1,22 @@
+.dangKyCPN {
+    background: url("../../img/BackGround.jpg");
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: fixed;
+    bottom: 0;
+    .formDangKy {
+        padding-top: 2%;
+        width: 50%;
+        color: white;
+    }
+    .tieuDeDK {
+        font-weight: 400;
+        font-size: 30px;
+        letter-spacing: 0.1;
+        background-image: linear-gradient(to right, #ec7532, #fbbd61);
+        color: transparent;
+        -webkit-background-clip: text;
+    }
+}

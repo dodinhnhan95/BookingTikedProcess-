@@ -1,0 +1,34 @@
+.DangNhapCPN {
+  background: url("../../img/BackGround.jpg");
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: fixed;
+  bottom: 0;
+  .formDangNhap {
+    padding-top: 7%;
+    width: 35%;
+    color: white;
+    .TieuDeDN {
+      font-weight: 400;
+      font-size: 30px;
+      letter-spacing: 0.1;
+      background-image: linear-gradient(to right, #ec7532, #fbbd61);
+      color: transparent;
+      -webkit-background-clip: text;
+    }
+    .itemDangNhap {
+      width: 2rem;
+      height: 2rem;
+
+      margin-bottom: 1rem;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+    .nutDangKy {
+      text-decoration: none;
+    }
+  }
+}

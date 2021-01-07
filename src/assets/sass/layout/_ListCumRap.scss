@@ -1,0 +1,111 @@
+.bangHienLich {
+  font-family: sans-serif;
+  // background: linear-gradient(to right, whitesmoke, rgba(71, 71, 71, 0.5));
+  border-radius: 4px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+table {
+  border-top: 2px solid rgb(231, 226, 226);
+  background: linear-gradient(to right, whitesmoke, rgba(11, 15, 236, 0.397));
+  margin-bottom: 0px;
+}
+.bangCumRap {
+  height: 650px;
+  overflow: scroll;
+  border-radius: 4px;
+}
+.loGo {
+  border-bottom: 1px solid rgb(219, 208, 208);
+  height: 6rem;
+  cursor: pointer;
+}
+.diaChiCum {
+  font-size: 13px;
+  // font-style: italic;
+}
+.hinhPhimChieu {
+  width: 4rem;
+  height: 100%;
+}
+.tenPhimChieu {
+  font-size: 15px;
+}
+.lichChieu {
+  display: flex;
+  justify-content: flex-start;
+  gap: 5px;
+  padding: 8px 5px;
+  font-size: 15px;
+  font-weight: bold;
+  color: black;
+  border-bottom: 1px solid rgb(219, 208, 208);
+  height: 8rem;
+}
+.tenDiaChiCum {
+  border-bottom: 1px solid rgb(219, 208, 208);
+  // height: 6rem;
+  color: rgb(233, 140, 19);
+  cursor: pointer;
+}
+.tieuDeTTLC {
+  font-size: 1.8rem;
+  font-weight: 700;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  letter-spacing: 0.1px;
+  background-image: linear-gradient(to right, rgba(7, 7, 7, 0.5), rgb(68, 68, 68));
+  color: transparent;
+  -webkit-background-clip: text;
+  text-shadow: 5px 5px 10px rgb(27, 27, 27);
+  cursor: pointer;
+}
+
+td {
+  border-top: 2px solid rgb(231, 226, 226);
+  border: 1px solid rgb(231, 226, 226);
+}
+tr {
+  border: 1px solid rgb(231, 226, 226);
+}
+.iconHTCum {
+  width: 10%;
+}
+.iconTenCum {
+  width: 38%;
+}
+.iconPhimDangChieu {
+  width: 52%;
+}
+@media only screen and (max-width: 730px) {
+  .hinhPhimChieu {
+    width: 3.5rem;
+    height: 100%;
+  }
+  .tenPhimChieu {
+    font-size: 10px;
+  }
+}
+@media only screen and (max-width: 618px) {
+  .hinhPhimChieu {
+    display: none;
+  }
+  .btnDatVe {
+    font-size: 10px;
+  }
+}
+@media only screen and (max-width: 492px) {
+  .iconHTCum {
+    width: 5%;
+  }
+  .iconTenCum {
+    width: 38%;
+  }
+  .iconPhimDangChieu {
+    width: 57%;
+  }
+  .lichChieu {
+    height: 12rem;
+  }
+}

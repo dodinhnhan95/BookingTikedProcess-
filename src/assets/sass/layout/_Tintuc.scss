@@ -1,0 +1,38 @@
+.Tintuc {
+    font-family: sans-serif;
+    width: 70%;
+}
+
+.tieuDeTT {
+    font-weight: bolder;
+}
+.tinTucItem {
+    text-align: left;
+    display: block;
+    padding: 4px 4px;
+}
+.imgItem {
+    width: 100%;
+}
+.noiDungTin {
+    font-size: 13px;
+    font-weight: lighter;
+    color: rgb(88, 88, 88);
+}
+.tinNho {
+    margin-bottom: 10px;
+}
+.imgItem2 {
+    width: 100%;
+    // padding-bottom: 15px;
+    height: 100%;
+    border-radius: 4px;
+}
+.noiDungTin2 {
+    font-size: 14px;
+    color: rgb(24, 23, 23);
+}
+.noiDungTin2:hover {
+    color: rgb(241, 60, 4);
+    transition: all 0.5s;
+}
