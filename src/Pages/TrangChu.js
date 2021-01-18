@@ -11,9 +11,6 @@ import Footer from "../Component/Footer";
 export default function TrangChu(props) {
   const dsPhim = useSelector((state) => state.QuanLyPhimReducer.dsPhim);
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(layDanhSachPhimApiAction());
-  }, []);
 
   const renderPhim = () => {
     return dsPhim.slice(0, 8).map((phim, index) => {
@@ -23,7 +20,7 @@ export default function TrangChu(props) {
           <div className="card text-left">
             <img
               style={{ height: "22rem" }}
-              class="card-img-top"
+              className="card-img-top"
               src={phim.hinhAnh}
               alt={phim.hinhAnh}
               onError={(e) => {
@@ -65,18 +62,10 @@ export default function TrangChu(props) {
             fontSize: "2rem",
           }}
         >
-          <span
-            className="phimDangChieu"
-            style={{ margin: "0px 20px" }}
-            onClick=""
-          >
+          <span className="phimDangChieu" style={{ margin: "0px 20px" }}>
             PHIM ĐANG CHIẾU
           </span>
-          <span
-            className="phimDangChieu"
-            style={{ margin: "0px 20px" }}
-            onClick=""
-          >
+          <span className="phimDangChieu" style={{ margin: "0px 20px" }}>
             PHIM SẮP CHIẾU
           </span>
         </div>

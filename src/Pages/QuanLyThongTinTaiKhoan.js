@@ -8,11 +8,7 @@ import Swal from "sweetalert2";
 
 export default function QuanLyThongTinTaiKhoan(props) {
   const dispatch = useDispatch();
-  const userThongTin = useSelector(
-    (state) => state.QuanLyNguoiDungReducer.userInfo
-  );
-  // đang bị bất đồng bộ do sử dụng useEffect nên chỉ chạy chạy các hàm bên ngoài render trước xong mới quay lại chạy các hàm bên trong useEffect nên các thuộc tính liên quan đến kết quả sau khi gọi Api bên trong useEffect sẽ bị lỗi nếu gọi và sử dụng trong render **** xem xét và fix lỗi này
-  console.log("userThongTin", userThongTin);
+
   // lấy userlogin về để lấy được thuộc tính tài khoản trong userlogin
   const userLogin = useSelector(
     (state) => state.QuanLyNguoiDungReducer.userLogin
@@ -24,22 +20,36 @@ export default function QuanLyThongTinTaiKhoan(props) {
   });
   console.log("value tai khoan dispatch de lay tt", userInfo);
   // hàm gọi API để lấy thông tin tài khoản
-  useEffect(() => {
-    dispatch(layThongTinTaiKhoanDangNhap(userInfo));
+  useEffect(async () => {
+    dispatch(await layThongTinTaiKhoanDangNhap(userInfo));
   }, []);
   // lấy thông tin tài khoản từ reducer sau khi gọi API và API trả về
+  const userThongTin = useSelector(
+    (state) => state.QuanLyNguoiDungReducer.userInfo
+  );
+  console.log("userThongTin", userThongTin?.taiKhoan);
 
   //----------------------- Phương Thức chỉnh sửa tt ---------------------------//
   // tạo một state chưa một object dùng để truyền vào API chỉnh sửa thông tin
   const [userEdit, setUserEdit] = useState({
-    taiKhoan: userLogin.taiKhoan,
-    hoTen: userLogin.hoTen,
-    email: userLogin.email,
-    soDT: userLogin.soDT,
-
+    taiKhoan: "",
+    hoTen: "",
+    email: "",
+    soDT: "",
+    matKhau: "",
     maNhom: "GP01",
     maLoaiNguoiDung: "KhachHang",
   });
+  useEffect(() => {
+    setUserEdit({
+      ...userEdit,
+      taiKhoan: userThongTin?.taiKhoan,
+      matKhau: userThongTin?.matKhau,
+      email: userThongTin?.email,
+      soDT: userThongTin?.soDT,
+      hoTen: userThongTin?.hoTen,
+    });
+  }, [userThongTin]);
   const [Err, setErr] = useState({
     taiKhoan: "",
     hoTen: "",
@@ -71,7 +81,7 @@ export default function QuanLyThongTinTaiKhoan(props) {
     dispatch(capNhatInfoAction(userEdit));
   };
 
-  let disabled = false;
+  let disabled = true;
   const chinhSuaThongTin = () => {};
 
   const handleChange = (e) => {
@@ -98,16 +108,16 @@ export default function QuanLyThongTinTaiKhoan(props) {
 
   return (
     <div>
-      <form className="infoUser" onSubmit={handleSubmit}>
+      <div className="infoUser" onSubmit={handleSubmit}>
         <form action="#" className="itemInfo row">
           <span className="col-2">Họ Tên:</span>
           <input
             type="text"
             name="hoTen"
             className="col-6 form-control"
-            value={userEdit.hoTen}
+            value={userEdit?.hoTen}
             onChange={handleChange}
-            disabled={disabled}
+            // disabled={disabled}
           />
           <p className="text-danger">{Err.hoTen}</p>
         </form>
@@ -117,9 +127,9 @@ export default function QuanLyThongTinTaiKhoan(props) {
             type="text"
             name="soDT"
             className="col-6 form-control"
-            value={userEdit.soDT}
+            value={userEdit?.soDT}
             onChange={handleChange}
-            disabled={disabled}
+            // disabled={disabled}
           />
           <p className="text-danger">{Err.soDT}</p>
         </form>
@@ -129,7 +139,7 @@ export default function QuanLyThongTinTaiKhoan(props) {
             className="col-6 form-control"
             value={userEdit.email}
             onChange={handleChange}
-            disabled={disabled}
+            // disabled={disabled}
             type="text"
             name="email"
           />
@@ -141,7 +151,7 @@ export default function QuanLyThongTinTaiKhoan(props) {
             className="col-6 form-control"
             value={userEdit.taiKhoan}
             onChange={handleChange}
-            disabled={disabled}
+            // disabled={disabled}
             type="text"
             name="taiKhoan"
           />
@@ -154,11 +164,11 @@ export default function QuanLyThongTinTaiKhoan(props) {
           >
             Chỉnh sửa
           </button>
-          <button className="btn btn-group btn-success  " type="submit">
+          <button className="btn btn-group btn-success " type="submit">
             Cập nhật
           </button>
         </div>
-      </form>
+      </div>
     </div>
   );
 }

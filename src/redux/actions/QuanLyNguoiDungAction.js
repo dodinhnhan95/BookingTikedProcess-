@@ -63,16 +63,11 @@ export const capNhatInfoAction = (userEdit) => {
       },
     });
     promise.then((res) => {
-      dispatch({
-        type: "CAP_NHAT",
-        userEdit: res.data,
-      });
-      dispatch(dangNhapAction(userEdit));
       swal.fire("Thông Báo", "Cập nhật thành công", "success");
       // history.push("/dangnhap");
     });
     promise.catch((err) => {
-      swal.fire("Thông Báo", err, "warning");
+      swal.fire("Thông Báo", `${err.response.data}`, "warning");
       console.log(err);
     });
   };

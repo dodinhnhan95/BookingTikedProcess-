@@ -66,7 +66,7 @@ export default function ListCumRap(props) {
     return danhSachRap?.map((rap, index) => {
       let active = index === 0 ? "active" : "";
       return (
-        <a
+        <div
           key={index}
           className="nav-link loGo"
           id={"v-pills-home-tab" + active}
@@ -82,7 +82,7 @@ export default function ListCumRap(props) {
             alt={rap.logo}
             style={{ width: 50, height: 50 }}
           />
-        </a>
+        </div>
       );
     });
   };
@@ -93,9 +93,8 @@ export default function ListCumRap(props) {
   // useDispatch
   const dispatch = useDispatch();
   //gọi useEffect
-  useEffect(() => {
-    dispatch(layChiTietDanhSachCumRap());
-    console.log(maTruyenVao);
+  useEffect(async () => {
+    dispatch(await layChiTietDanhSachCumRap());
     dispatch(layThongTinLichChieu(maTruyenVao));
   }, [maTruyenVao]);
   return (

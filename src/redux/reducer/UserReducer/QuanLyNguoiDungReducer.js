@@ -1,4 +1,4 @@
-const { USER_LOGIN } = require("../consts/Config");
+const { USER_LOGIN } = require("../../consts/Config");
 let usLogin = {};
 
 if (localStorage.getItem(USER_LOGIN)) {
