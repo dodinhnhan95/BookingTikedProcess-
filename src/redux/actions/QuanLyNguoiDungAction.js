@@ -19,8 +19,13 @@ export const dangNhapAction = (userLogin) => {
         type: "DANG_NHAP",
         userLogin: result.data,
       });
+      console.log(result.data.maLoaiNguoiDung);
+      if (result.data.maLoaiNguoiDung === "QuanTri") {
+        history.push("/admin/quanlyphim");
+      } else {
+        history.push("/trangchu");
+      }
       swal.fire("Thông Báo", "đăng nhập thành công", "success");
-      history.push("/trangchu");
     });
     promise.catch((err) => {
       swal.fire("Thông Báo", err.response.data, "warning");

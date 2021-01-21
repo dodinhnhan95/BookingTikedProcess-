@@ -34,7 +34,7 @@ export const AdminTemplate = (props) => {
           console.log("log out");
           localStorage.removeItem(USER_LOGIN);
           localStorage.removeItem(ACCESSTOKEN);
-          history.push("/");
+          history.push("/trangchu");
         };
 
         return (

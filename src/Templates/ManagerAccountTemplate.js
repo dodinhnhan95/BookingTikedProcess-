@@ -3,6 +3,7 @@ import { Route, NavLink } from "react-router-dom";
 import "antd/dist/antd.css";
 import { Layout, Menu, Breadcrumb } from "antd";
 import {
+  LogoutOutlined,
   DesktopOutlined,
   PieChartOutlined,
   FileOutlined,
@@ -12,6 +13,7 @@ import {
 import Caroulsel2 from "../Component/Caroulsel2";
 import { useSelector } from "react-redux";
 import { ACCESSTOKEN, USER_LOGIN } from "../redux/consts/Config";
+import { history } from "../Util/history";
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 export const ManagerAccountTemplate = (props) => {
@@ -25,16 +27,18 @@ export const ManagerAccountTemplate = (props) => {
   const onCollapse = (collapsed) => {
     setState({ collapsed });
   };
-  // const logOut = () => {
-  //   localStorage.removeItem(ACCESSTOKEN);
-  //   localStorage.removeItem(USER_LOGIN);
-  // };
 
   const { Component, ...restParams } = props;
   return (
     <Route
       {...restParams}
       render={(propsRoute) => {
+        const handleLogout = () => {
+          console.log("log out");
+          localStorage.removeItem(USER_LOGIN);
+          localStorage.removeItem(ACCESSTOKEN);
+          history.push("/trangchu");
+        };
         return (
           <>
             <Layout style={{ minHeight: "100vh" }}>
@@ -91,17 +95,13 @@ export const ManagerAccountTemplate = (props) => {
                       <NavLink to="#"> Đổi mật khẩu</NavLink>
                     </Menu.Item>
                   </SubMenu>
-                  <div className="text-center">
-                    {" "}
-                    {/* onClick={logOut()} */}
-                    <button className="btn btn-group btn-success">
-                      <NavLink to="/trangchu">Đăng Xuất </NavLink>
-                    </button>
-                  </div>
-
-                  {/* <Menu.Item key="9" icon={<FileOutlined />}>
-                    Files
-                  </Menu.Item> */}
+                  <Menu.Item
+                    key="9"
+                    icon={<LogoutOutlined />}
+                    onClick={handleLogout}
+                  >
+                    Đăng Xuất
+                  </Menu.Item>
                 </Menu>
               </Sider>
               <Layout className="site-layout">
@@ -121,9 +121,7 @@ export const ManagerAccountTemplate = (props) => {
                     <Component {...propsRoute} />
                   </div>
                 </Content>
-                {/* <Footer style={{ textAlign: "center" }}>
-                  Ant Design ©2018 Created by Ant UED
-                </Footer> */}
+                <Footer style={{ textAlign: "center" }}>CYBER-FILM</Footer>
               </Layout>
             </Layout>
             <Footer />

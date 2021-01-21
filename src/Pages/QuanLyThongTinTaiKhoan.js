@@ -58,31 +58,14 @@ export default function QuanLyThongTinTaiKhoan(props) {
   });
 
   /// hàm gửi thông tin sửa lên API
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     console.log("đối tượng dispatch", userEdit);
     console.log("lôi xảy ra ", Err);
     e.preventDefault();
-    let valid = true;
-    for (let tenTruong in userEdit) {
-      if (userEdit[tenTruong].trim() === "") {
-        valid = false;
-      }
-    }
-    // duyệt tất cả các lỗi phải rỗng
-    for (let tenTruong in Err) {
-      if (Err[tenTruong].trim() !== "") {
-        valid = false;
-      }
-    }
-    if (!valid) {
-      Swal.fire("Thông báo", "Dữ liệu chưa hợp lệ", "error");
-      return;
-    }
-    dispatch(capNhatInfoAction(userEdit));
+    dispatch(await capNhatInfoAction(userEdit));
   };
 
   let disabled = true;
-  const chinhSuaThongTin = () => {};
 
   const handleChange = (e) => {
     let { value, name } = e.target;
@@ -108,16 +91,15 @@ export default function QuanLyThongTinTaiKhoan(props) {
 
   return (
     <div>
-      <div className="infoUser" onSubmit={handleSubmit}>
+      <div className="infoUser">
         <form action="#" className="itemInfo row">
           <span className="col-2">Họ Tên:</span>
           <input
             type="text"
             name="hoTen"
             className="col-6 form-control"
-            value={userEdit?.hoTen}
+            value={userEdit.hoTen}
             onChange={handleChange}
-            // disabled={disabled}
           />
           <p className="text-danger">{Err.hoTen}</p>
         </form>
@@ -129,7 +111,6 @@ export default function QuanLyThongTinTaiKhoan(props) {
             className="col-6 form-control"
             value={userEdit?.soDT}
             onChange={handleChange}
-            // disabled={disabled}
           />
           <p className="text-danger">{Err.soDT}</p>
         </form>
@@ -137,9 +118,8 @@ export default function QuanLyThongTinTaiKhoan(props) {
           <span className="col-2">Email:</span>
           <input
             className="col-6 form-control"
-            value={userEdit.email}
+            value={userEdit?.email}
             onChange={handleChange}
-            // disabled={disabled}
             type="text"
             name="email"
           />
@@ -149,25 +129,20 @@ export default function QuanLyThongTinTaiKhoan(props) {
           <span className="col-2">Tên tài khoản:</span>
           <input
             className="col-6 form-control"
-            value={userEdit.taiKhoan}
+            value={userEdit?.taiKhoan}
             onChange={handleChange}
-            // disabled={disabled}
             type="text"
             name="taiKhoan"
+            disabled={disabled}
           />
           <p className="text-danger">{Err.taiKhoan}</p>
         </form>
-        <div className="chucNangChinhSua">
-          <button
-            className="btn btn-group btn-primary  "
-            onClick={chinhSuaThongTin()}
-          >
-            Chỉnh sửa
-          </button>
-          <button className="btn btn-group btn-success " type="submit">
+        <form className="chucNangChinhSua" onSubmit={handleSubmit}>
+          <button className="btn btn-group btn-primary  ">Chỉnh sửa</button>
+          <button type="submit" className="btn btn-group btn-success ">
             Cập nhật
           </button>
-        </div>
+        </form>
       </div>
     </div>
   );

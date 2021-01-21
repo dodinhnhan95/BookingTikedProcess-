@@ -21,21 +21,23 @@ import { layDanhSachPhimApiAction } from "../redux/actions/QuanLyPhimAction";
 
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 export default function Carousel(props) {
-  const slides = useSelector((state) => state.QuanLyPhimReducer.slides);
   const phimList = useSelector((state) => state.QuanLyPhimReducer.dsPhim);
-  const index = 0;
-  const dispatch = useDispatch();
+  const [ds, setds] = useState(phimList);
   useEffect(async () => {
     dispatch(await layDanhSachPhimApiAction());
-  }, []);
-  const handlePlay = (phim, index) => {
+  }, [ds]);
+
+  const dispatch = useDispatch();
+  const handlePlay = (index) => {
     let popup = document.getElementById(index);
     popup.classList.toggle("show");
   };
   return (
     <div className="slider-box">
-      <Swiper>
+      <Swiper key={0} className="Swiper1">
         <Swiper
+          key={1}
+          className="Swiper2"
           slidesPerView={4}
           spaceBetween={30}
           slidesPerGroup={4}
@@ -67,15 +69,15 @@ export default function Carousel(props) {
             },
           }}
         >
-          {phimList?.slice(1, 10).map((phim, index) => {
+          {phimList?.slice(0, 8).map((phim, index) => {
             return (
               <>
-                <SwiperSlide key={index}>
+                <SwiperSlide key={index} className="SwiperWrap">
                   <div className="cardItems">
                     <img
                       className="hinhPhim card-img-top"
-                      src={phim.hinhAnh}
-                      alt={phim.hinhAnh}
+                      src={phim?.hinhAnh}
+                      alt={phim?.hinhAnh}
                       onError={(e) => {
                         e.target.onError = null;
                         e.target.src = "http://picsum.photos/300/300";
@@ -83,14 +85,15 @@ export default function Carousel(props) {
                     />
                     <div className="cardPhim">
                       <div>
-                        <h4 className="card-title itemName">{phim.tenPhim}</h4>
+                        <h4 className="card-title itemName">{phim?.tenPhim}</h4>
                       </div>
                     </div>
                     <div className="popup">
                       <img
                         className="playBtn"
+                        alt="play"
                         src="/img/btnPlay.png"
-                        onClick={() => handlePlay(phim, index)}
+                        onClick={() => handlePlay(index)}
                       />
                       <span className="btnDatVe">
                         <p>ĐẶT VÉ</p>
@@ -98,20 +101,20 @@ export default function Carousel(props) {
                     </div>
                   </div>
                 </SwiperSlide>
-                <div className="trailer-wrapper" id={index}>
+                <div className="trailer-wrapper" key={phim?.tenPhim} id={index}>
                   <iframe
                     className="popuptext"
-                    src={phim.trailer}
+                    src={phim?.trailer}
                     width="900"
                     height="450"
                     frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allow="accelerometer;  clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
-                  ></iframe>
+                  />
                   <i
                     id={index}
                     className="fa fa-times btnClose"
-                    onClick={() => handlePlay(phim, index)}
+                    onClick={() => handlePlay(index)}
                   />
                 </div>
               </>

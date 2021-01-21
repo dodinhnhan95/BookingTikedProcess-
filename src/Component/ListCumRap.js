@@ -22,39 +22,73 @@ export default function ListCumRap(props) {
     setPhimDangChieuTapCumRap(cum);
   };
   const renderLichChieu = () => {
-    return phimDangChieuTaiCumRap.danhSachPhim?.map((phim, index) => {
-      return (
-        <div className="test-left lichChieu " key={index}>
-          <img className="hinhPhimChieu" src={phim.hinhAnh} />
-          <div style={{ display: "block" }}>
-            <span className="tenPhimChieu"> {phim.tenPhim}</span>
-            <br />
-            <button className="btn btn-group btn-success btnDatVe">
-              Đặt vé
-            </button>
+    return phimDangChieuTaiCumRap.danhSachPhim
+      ?.slice(0, 8)
+      .map((phim, index) => {
+        return (
+          // <div className="test-left lichChieu " key={index}>
+          //   <img className="hinhPhimChieu" src={phim.hinhAnh} />
+          //   <div style={{ display: "block" }}>
+          //     <span className="tenPhimChieu"> {phim.tenPhim}</span>
+          //     <br />
+          //     <button className="btn btn-group btn-success btnDatVe">
+          //       Đặt vé
+          //     </button>
+          //   </div>
+          // </div>
+          <div className="box-movie" key={index}>
+            <div className="movie-info">
+              <img
+                src={phim.hinhAnh}
+                alt={phim.hinhAnh}
+                onError={(e) => {
+                  e.target.onError = null;
+                  e.target.src = "https://picsum.photos/300/300";
+                }}
+              />
+              <div className="wrap-info">
+                <div>
+                  <span>C18</span>
+                  <h4> {phim.tenPhim}</h4>
+                </div>
+                <p className="ngBinding">100 phút - IMDb 7.3</p>
+              </div>
+            </div>
+            <div className="movie-time">
+              <p>2D Digital</p>
+              <a className="season">
+                <span>15:30</span>~17:30
+              </a>
+            </div>
           </div>
-        </div>
-      );
-    });
+        );
+      });
   };
   const renderCumRap = () => {
     return thongTinLichChieuTheoCum.map((heThongRap, i) => {
       return (
-        <div key={i}>
+        <div key={i} className="cinema-item">
           {heThongRap.lstCumRap?.map((cum, index) => {
             return (
-              <div key={index} role="tablist" className="tenDiaChiCum ">
-                <p
-                  style={{
-                    fontWeight: "bold",
-                    fontSize: "1rem",
-                  }}
-                  onClick={() => truyenLichChieu(cum)}
-                >
-                  {cum.tenCumRap}
-                  <br />
-                  <span className="diaChiCum text-dark ">{cum.diaChi}</span>
-                </p>
+              // <div key={index} role="tablist" className="tenDiaChiCum ">
+              //   <p
+              //     style={{
+              //       fontWeight: "bold",
+              //       fontSize: "1rem",
+              //     }}
+              //     onClick={() => truyenLichChieu(cum)}
+              //   >
+              //     {cum.tenCumRap}
+              //     <br />
+              //     <span className="diaChiCum text-dark ">{cum.diaChi}</span>
+              //   </p>
+              // </div>
+
+              <div className="cinema-dt" key={index}>
+                <a onClick={() => truyenLichChieu(cum)}>
+                  <span>{cum.tenCumRap}</span>
+                  <p>{cum.diaChi}</p>
+                </a>
               </div>
             );
           })}
@@ -66,23 +100,23 @@ export default function ListCumRap(props) {
     return danhSachRap?.map((rap, index) => {
       let active = index === 0 ? "active" : "";
       return (
-        <div
+        <li
           key={index}
-          className="nav-link loGo"
+          className="cinema-col"
           id={"v-pills-home-tab" + active}
           data-toggle="pill"
           href={`#${rap.maHeThongRap}`}
           role="tab"
           aria-controls="v-pills-home"
           aria-selected="true"
-          onClick={() => handleTruyen(rap.maHeThongRap)}
+          onClick={() => {
+            handleTruyen(rap.maHeThongRap);
+          }}
         >
-          <img
-            src={rap.logo}
-            alt={rap.logo}
-            style={{ width: 50, height: 50 }}
-          />
-        </div>
+          <span className="cinema-ho">
+            <img src={rap.logo} alt="logo" className="logo" />
+          </span>
+        </li>
       );
     });
   };
@@ -98,20 +132,17 @@ export default function ListCumRap(props) {
     dispatch(layThongTinLichChieu(maTruyenVao));
   }, [maTruyenVao]);
   return (
-    <div className="bangHienLich text-center">
-      <span className="tieuDeTTLC">THÔNG TIN LỊCH CHIẾU</span>
-
-      <div className=" bangCumRap text-left">
-        <table className="table mb-0">
-          <tbody>
-            <tr>
-              <td className="iconHTCum">{renderHeThongRap()}</td>
-              <td className="iconTenCum"> {renderCumRap()}</td>
-              <td className="iconPhimDangChieu">{renderLichChieu()}</td>
-            </tr>
-          </tbody>
-        </table>
+    <>
+      <div className="back-new">
+        <h3>THÔNG TIN LỊCH CHIẾU</h3>
       </div>
-    </div>
+      <div className="cinema-block" id="cumRap">
+        <div className="home-cinema">
+          <ul className="list-cinemas">{renderHeThongRap()}</ul>
+          <div className="cinema">{renderCumRap()}</div>
+          <div className="wrap-movie">{renderLichChieu()}</div>
+        </div>
+      </div>
+    </>
   );
 }

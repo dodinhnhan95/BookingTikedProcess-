@@ -1,19 +1,22 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { ACCESSTOKEN, USER_LOGIN } from "../redux/consts/Config";
 
 export default function Header(props) {
-  ///// -------------- Lỗi <a> not apear <a> trong component này-------------------------///
   const [click, setClick] = useState(false);
-  // const [dropdown, setDropdown] = useState(false);
-
-  const handleClick = () => setClick(!click);
-
-  const closeMobileMenu = () => setClick(false);
+  const handleClick = () => {
+    setClick(!click);
+  };
+  const closeMobileMenu = () => {
+    // console.log("log out");
+    localStorage.removeItem(USER_LOGIN);
+    localStorage.removeItem(ACCESSTOKEN);
+    setClick(false);
+  };
   let userLogin = useSelector(
     (state) => state.QuanLyNguoiDungReducer.userLogin
   );
-
   // window.addEventListener("scroll", () => {
   //   let navBar = document.getElementById("navbar");
   //   var prevScrollpos = window.pageYOffset;
@@ -45,6 +48,7 @@ export default function Header(props) {
         <div
           className="collapse navbar-collapse cacLienKet"
           id="collapsibleNavId"
+          onClick={handleClick}
         >
           <ul className="navbar-nav " id="thanhTacVu">
             <li className="nav-item ">
@@ -79,9 +83,14 @@ export default function Header(props) {
                       src="/img/tonghop/Userpic.png"
                     />
                   </span>{" "}
-                  {/* <div onSubmit className="nav-links" onClick={closeMobileMenu}>
+                  <NavLink
+                    to="/trangchu"
+                    className="nav-links"
+                    remove={userLogin}
+                    onClick={closeMobileMenu}
+                  >
                     THOÁT
-                  </div> */}
+                  </NavLink>
                 </NavLink>
               ) : (
                 <NavLink className="nav-link " to="/dangnhap">

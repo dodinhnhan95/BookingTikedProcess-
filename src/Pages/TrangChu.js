@@ -1,7 +1,5 @@
 import React, { useEffect } from "react";
 import style from "./CSS/TrangChu.module.css";
-import { useSelector, useDispatch } from "react-redux";
-import { layDanhSachPhimApiAction } from "../redux/actions/QuanLyPhimAction";
 import Carousel from "../Component/Carousel";
 import Caroulsel2 from "../Component/Caroulsel2";
 import ListCumRap from "../Component/ListCumRap";
@@ -9,36 +7,6 @@ import Tintuc from "../Component/Tintuc";
 import UngDung from "../Component/UngDung";
 import Footer from "../Component/Footer";
 export default function TrangChu(props) {
-  const dsPhim = useSelector((state) => state.QuanLyPhimReducer.dsPhim);
-  const dispatch = useDispatch();
-
-  const renderPhim = () => {
-    return dsPhim.slice(0, 8).map((phim, index) => {
-      console.log("phim", phim);
-      return (
-        <div key={index} style={{ position: "relative" }}>
-          <div className="card text-left">
-            <img
-              style={{ height: "22rem" }}
-              className="card-img-top"
-              src={phim.hinhAnh}
-              alt={phim.hinhAnh}
-              onError={(e) => {
-                e.target.onError = null;
-                e.target.src = "http://picsum.photos/300/300";
-              }}
-            />
-            <div>
-              <h4 className="card-title " style={{ fontSize: "18px" }}>
-                {phim.tenPhim}
-              </h4>
-            </div>
-          </div>
-        </div>
-      );
-    });
-  };
-
   return (
     <div
       className={`${style.fontRapChieu}`}
@@ -48,7 +16,6 @@ export default function TrangChu(props) {
         backgroundColor: "whitesmoke",
       }}
     >
-      {/* <Carousel /> */}
       <Caroulsel2 />
       <div
         style={{
@@ -72,7 +39,7 @@ export default function TrangChu(props) {
         <div className="carousel1">
           <Carousel />
         </div>
-        <div>
+        <div style={{ width: "90%", margin: "0 auto" }}>
           <ListCumRap />
         </div>
         <div className="componentTinTuc pb-5">
