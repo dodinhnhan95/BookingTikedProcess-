@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Swal from "sweetalert2";
 import { capNhatPhimAdminApi } from "../../../redux/actions/QuanLyPhimAdminAction";
+import { history } from "../../../Util/history";
 
 export default function ChinhSuaPhim() {
   const dispatch = useDispatch();
@@ -73,6 +74,19 @@ export default function ChinhSuaPhim() {
       );
     }
   };
+  const handleCancleEditPhim = (e) => {
+    e.preventDefault();
+    setItemPhimEdit({
+      hinhAnh: {},
+      maPhim: "",
+      tenPhim: "",
+      trailer: "",
+      moTa: "",
+      maNhom: "",
+    });
+    document.getElementById("formPhim-edit").reset();
+    history.push("/admin/quanlyphim");
+  };
   return (
     <div>
       <h1>CHỈNH SỬA PHIM</h1>
@@ -137,10 +151,7 @@ export default function ChinhSuaPhim() {
           </div>
           <>
             {renderButton()}
-            <button
-              className="cancel"
-              // onClick={handleCancle}
-            >
+            <button className="cancel" onClick={handleCancleEditPhim}>
               Hủy bỏ
             </button>
           </>

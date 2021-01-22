@@ -69,13 +69,13 @@ export default function ThemXoaPhim() {
     }
     if (valid) {
       return (
-        <button type="submit" className="update">
+        <button type="submit" className="themPhimbtn">
           Thêm Phim
         </button>
       );
     } else {
       return (
-        <button type="submit" className="update disabled" disabled>
+        <button type="submit" className="themPhimbtn disabled" disabled>
           Thêm Phim
         </button>
       );
@@ -128,7 +128,9 @@ export default function ThemXoaPhim() {
           </div>
         </div>
       </form>
-      <form onSubmit={handleSubmit}>{renderButton()}</form>
+      <form className="container-form" onSubmit={handleSubmit}>
+        {renderButton()}
+      </form>
     </div>
   );
 }

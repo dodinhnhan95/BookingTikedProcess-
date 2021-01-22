@@ -99,7 +99,7 @@ h1 {
     }
   }
   .chucNang {
-    display: flex;
+    // display: flex;
     justify-content: space-around;
     .cancel {
       padding: 5px 5px;
@@ -178,8 +178,26 @@ h1 {
 }
 #form-edit {
   width: 100%;
-  display: block;
+  // display: block;
   .thongTin {
-    display: flex;
+    // display: flex;
+  }
+}
+.themPhimbtn {
+  cursor: pointer;
+  padding: 5px 5px;
+  height: 3rem;
+  width: 30%;
+  border: 1px solid #e9e4e4;
+  background-color: rgb(33, 48, 252);
+  font-weight: bold;
+  color: white;
+  border-radius: 4px;
+  transition: all 0.5s;
+  &:hover {
+    border: 1px solid #080808;
+    background-color: rgb(241, 237, 237);
+    font-weight: bold;
+    color: rgb(33, 48, 252);
   }
 }
