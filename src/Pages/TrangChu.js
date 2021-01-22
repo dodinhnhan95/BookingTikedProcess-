@@ -6,7 +6,13 @@ import ListCumRap from "../Component/ListCumRap";
 import Tintuc from "../Component/Tintuc";
 import UngDung from "../Component/UngDung";
 import Footer from "../Component/Footer";
+import AOS from "aos";
+import "aos/dist/aos.css";
 export default function TrangChu(props) {
+  useEffect(() => {
+    AOS.init({ duration: 1500 });
+    // AOS.refresh();
+  }, []);
   return (
     <div
       className={`${style.fontRapChieu}`}
@@ -16,7 +22,10 @@ export default function TrangChu(props) {
         backgroundColor: "whitesmoke",
       }}
     >
-      <Caroulsel2 />
+      <div data-aos="fade-up">
+        <Caroulsel2 />
+      </div>
+
       <div
         style={{
           padding: "20px 10px",
@@ -39,13 +48,16 @@ export default function TrangChu(props) {
         <div className="carousel1">
           <Carousel />
         </div>
-        <div style={{ width: "90%", margin: "0 auto" }}>
+        <div style={{ width: "90%", margin: "0 auto" }} data-aos="fade-left">
           <ListCumRap />
         </div>
-        <div className="componentTinTuc pb-5">
+        <div className="componentTinTuc pb-5" data-aos="fade-right">
           <Tintuc />
         </div>
-        <div className="cpnUD">
+        <div
+          className="cpnUD"
+          // data-aos="fade-down-left"
+        >
           <UngDung />
         </div>
       </div>

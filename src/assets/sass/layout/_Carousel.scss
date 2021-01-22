@@ -21,7 +21,6 @@
     overflow: hidden;
     opacity: 1;
     transform: rotateY(0deg);
-
     box-shadow: 1px 2px 10px 5px solid #000;
   }
   &:hover .hinhPhim {
@@ -48,7 +47,7 @@
     height: 3.6rem;
     background: linear-gradient(to right, #fbbd61, #ec7532);
     opacity: 1;
-    transition: all 0.5;
+    transition: all 0.8s;
     justify-items: center;
 
     .itemName {
@@ -124,24 +123,20 @@
   margin-bottom: 1rem;
 }
 .trailer-wrapper {
-  height: 100%;
-  min-height: 100vh;
-  visibility: hidden;
-  opacity: 0;
+  position: fixed;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 9999;
   background: rgba(0, 0, 0, 0.95);
-  color: #fff;
-  text-align: center;
-  z-index: 99999;
   width: 100%;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  left: 50%;
-  top: 50%;
-  // transform: translate(-50%, -50%);
-  position: fixed;
-  // position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  color: #fff;
   .popuptext {
     max-width: 900px;
     outline: none;
@@ -222,4 +217,7 @@
   -webkit-align-items: center;
   align-items: center;
 }
-// --------CHỈNH CSS CHO CARDFILM------------
+
+.zIndex {
+  z-index: 0 !important;
+}

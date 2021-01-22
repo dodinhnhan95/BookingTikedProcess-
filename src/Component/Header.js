@@ -1,22 +1,36 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { ACCESSTOKEN, USER_LOGIN } from "../redux/consts/Config";
-
 export default function Header(props) {
-  const [click, setClick] = useState(false);
-  const handleClick = () => {
-    setClick(!click);
-  };
+  // const handleClick = () => {
+  //   setClick(!click);
+  // };
   const closeMobileMenu = () => {
-    // console.log("log out");
     localStorage.removeItem(USER_LOGIN);
     localStorage.removeItem(ACCESSTOKEN);
-    setClick(false);
+    setUsLogin("");
   };
-  let userLogin = useSelector(
-    (state) => state.QuanLyNguoiDungReducer.userLogin
-  );
+  let userLogin = "";
+  const [usLogin, setUsLogin] = useState(userLogin);
+  useEffect(async () => {
+    setUsLogin(usLogin);
+  }, [userLogin]);
+  userLogin = useSelector((state) => state.QuanLyNguoiDungReducer.userLogin);
+
+  console.log("userLogin", userLogin);
+
+  console.log(usLogin);
+
+  // window.addEventListener("scroll", () => {
+  //   let nav = document.querySelector("nav");
+  //   // if (nav) {
+  //   //   nav.classList.toggle("headerFix", window.scrollY > 0);
+  //   // }
+  //   if (window.innerWidth > 960) {
+  //     nav.classList.toggle("headerFix");
+  //   }
+  // });
   // window.addEventListener("scroll", () => {
   //   let navBar = document.getElementById("navbar");
   //   var prevScrollpos = window.pageYOffset;
@@ -35,10 +49,7 @@ export default function Header(props) {
     listMN.classList.toggle("active");
   };
   return (
-    <div
-      id="navbar"
-      //  onScroll={handleScroll()}
-    >
+    <nav id="navbar">
       <div className="item_navBar">
         <NavLink className="mr-100 tenHang " to="/trangchu">
           <h1 className="tenHangPhim">CYBER FILM</h1>
@@ -48,7 +59,7 @@ export default function Header(props) {
         <div
           className="collapse navbar-collapse cacLienKet"
           id="collapsibleNavId"
-          onClick={handleClick}
+          // onClick={handleClick}
         >
           <ul className="navbar-nav " id="thanhTacVu">
             <li className="nav-item ">
@@ -57,13 +68,11 @@ export default function Header(props) {
                 <span className="sr-only">(current)</span>
               </NavLink>
             </li>
-
             <li className="nav-item">
               <NavLink className="nav-link " to="/tintuc">
                 <h3 className="deMuc"> TIN TỨC </h3>
               </NavLink>
             </li>
-
             <li className="nav-item">
               <NavLink className="nav-link " to="/lienhe">
                 <h3 className="deMuc">LIÊN HỆ </h3>
@@ -71,12 +80,12 @@ export default function Header(props) {
             </li>
 
             <li className="nav-item">
-              {userLogin.taiKhoan ? (
+              {usLogin.taiKhoan ? (
                 <NavLink
                   className="font-weight-bold nav-link hinhDangNhap"
                   to="/quanly/quanlythongtin"
                 >
-                  XIN CHÀO, {userLogin.taiKhoan} !
+                  XIN CHÀO, {usLogin.taiKhoan} !
                   <span className="mr-2 text-center">
                     <img
                       className="hinhUserLogin"
@@ -86,7 +95,6 @@ export default function Header(props) {
                   <NavLink
                     to="/trangchu"
                     className="nav-links"
-                    remove={userLogin}
                     onClick={closeMobileMenu}
                   >
                     THOÁT
@@ -105,6 +113,6 @@ export default function Header(props) {
           <i className="fas fa-bars"></i>
         </div>
       </nav>
-    </div>
+    </nav>
   );
 }

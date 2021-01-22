@@ -35,8 +35,6 @@ export const ManagerAccountTemplate = (props) => {
       render={(propsRoute) => {
         const handleLogout = () => {
           console.log("log out");
-          localStorage.removeItem(USER_LOGIN);
-          localStorage.removeItem(ACCESSTOKEN);
           history.push("/trangchu");
         };
         return (
@@ -100,7 +98,7 @@ export const ManagerAccountTemplate = (props) => {
                     icon={<LogoutOutlined />}
                     onClick={handleLogout}
                   >
-                    Đăng Xuất
+                    Quay Về Trang Chủ
                   </Menu.Item>
                 </Menu>
               </Sider>

@@ -36,7 +36,6 @@ export const AdminTemplate = (props) => {
           localStorage.removeItem(ACCESSTOKEN);
           history.push("/trangchu");
         };
-
         return (
           <>
             <Layout style={{ minHeight: "100vh" }}>

@@ -4,7 +4,7 @@
   top: 0; /* Stay on top */
   width: 100%; /* Full width */
   transition: top 0.5s; /* Transition effect when sliding down (and up) */
-  z-index: 99;
+  z-index: 20;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -167,4 +167,7 @@ li {
     transform: rotateY(-180deg);
   }
 }
-// @media all;
+.headerFix {
+  position: fixed;
+  z-index: 9999;
+}
