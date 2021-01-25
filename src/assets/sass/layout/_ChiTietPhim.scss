@@ -1,0 +1,38 @@
+.styleBlur {
+  position: relative;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  justify-content: center;
+  .posterLandscapeFilm {
+    filter: blur(15px);
+    width: calc(100% + 5px);
+  }
+}
+.chiTietPhim {
+  position: absolute;
+  top: 5%;
+  left: 0;
+
+  margin-left: 0;
+  padding: 50px;
+  .noiDungChiTietPhim {
+    border-radius: 10px;
+  }
+  img {
+    border-radius: 10px;
+  }
+  .noiDungChiTietPhim1 {
+    position: absolute;
+    top: 30%;
+    left: 0;
+  }
+}
+.thongTinLichChieu {
+  background-color: rgba(255, 255, 255, 0.157);
+  width: 100%;
+  height: 500px;
+  margin: 0 auto;
+  border-radius: 10px;
+  overflow: scroll;
+}

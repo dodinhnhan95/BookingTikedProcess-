@@ -1,6 +1,7 @@
 import React from "react";
 import Axios from "axios";
-
+import { ACCESSTOKEN } from "../consts/Config";
+import Swal from "sweetalert2";
 //----------------------- lấy danh sách phim đang chiếu --------------------------------------------------------
 export const layDanhSachPhimApiAction = () => {
   return (dispatch) => {
@@ -88,5 +89,73 @@ export const layThongTinLichChieuCuaRap = (TTLich) => {
   return {
     type: "LAY_TT_LICH_CHIEU",
     thongTinLichChieuTheoCum: TTLich,
+  };
+};
+
+export const layChiTietPhimApiAction = (maPhim) => {
+  return async (dispatch) => {
+    try {
+      //gọi api lấy dữ liệu chi tiét phim về
+      let result = await Axios({
+        url: `https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${maPhim}`,
+        method: "GET",
+      });
+
+      //sau khi lấy dữ liệu chi tiết phim dispatch lên reducer giá trị vừa lấy cập nhật cho chi tiết phim
+      console.log("result", result);
+      console.log("result.data", result.data);
+      dispatch({
+        type: "LAY_CHI_TIET_PHIM",
+        chiTietPhim: result.data,
+      });
+    } catch (err) {
+      console.log(err.response.data);
+    }
+  };
+};
+
+export const layThongTinPhongVeApiAction = async (maLichChieu) => {
+  return async (dispatch) => {
+    try {
+      const { data, status } = await Axios({
+        url: `https://movie0706.cybersoft.edu.vn/api/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${maLichChieu}`,
+        method: "GET",
+      });
+
+      //thành công lấy dư liệu về cập nhật thongTinPhongVe
+      if (status === 200) {
+        dispatch({
+          type: "THONG_TIN_PHONG_VE",
+          thongTinPhongVe: data,
+        });
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+
+// action dat ve
+export const datVeApiAction = (thongTinVe) => {
+  return async (dispatch) => {
+    try {
+      let { data, status } = await Axios({
+        url: "https://movie0706.cybersoft.edu.vn/api/QuanLyDatVe/DatVe",
+        method: "POST",
+        data: thongTinVe,
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem(ACCESSTOKEN),
+        },
+      });
+      dispatch(await layThongTinPhongVeApiAction(thongTinVe.maLichChieu));
+      dispatch({
+        type: "DAT_VE_THANH_CONG",
+      });
+      Swal.fire("Thông báo", "Đặt vé thành công!", "success");
+      console.log(data);
+    } catch (err) {
+      console.log(err);
+      Swal.fire("Thông báo", "Đặt vé thất bại!", "error");
+    }
   };
 };
