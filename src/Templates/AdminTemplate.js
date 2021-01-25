@@ -11,6 +11,7 @@ import { useState } from "react";
 
 import { history } from "../Util/history";
 import { USER_LOGIN, ACCESSTOKEN } from "../redux/consts/Config";
+import { useDispatch } from "react-redux";
 
 const { Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -25,7 +26,7 @@ export const AdminTemplate = (props) => {
     console.log(collapsed);
     setState({ collapsed });
   };
-
+  const dispatch = useDispatch();
   return (
     <Route
       {...restParams}
@@ -34,6 +35,9 @@ export const AdminTemplate = (props) => {
           console.log("log out");
           localStorage.removeItem(USER_LOGIN);
           localStorage.removeItem(ACCESSTOKEN);
+          dispatch({
+            type: "XOA_TT_USER",
+          });
           history.push("/trangchu");
         };
         return (

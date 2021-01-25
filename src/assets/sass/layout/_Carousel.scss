@@ -13,7 +13,7 @@
   height: 22rem;
   position: relative;
   z-index: 10;
-  perspective: 1000px;
+  perspective: 3000px;
   &:hover .cardPhim {
     opacity: 0;
   }
@@ -77,23 +77,40 @@
     border-radius: 4px;
     transform: rotateY(90deg);
     transition: all 0.5s ease-in-out 0s;
+
     .btnDatVe {
       width: 100%;
       padding: 0px 20px;
       font-size: 20px;
       font-weight: 400;
       color: white;
+      text-decoration: none;
 
       p {
+        background-color: red;
         width: 100%;
         padding: 10% 0;
         border: 1px solid whitesmoke;
         border-radius: 10px;
         transition: all 0.5;
+        // &:hover {
+        //   background-color: rgba(207, 203, 203, 0.5);
+        //   color: rgba(0, 0, 0, 0.6);
+        // }
+        text-decoration: none;
+        @include styleButton(
+          $color-trans,
+          $color-red-0,
+          $pd-1 + 1,
+          56px,
+          $border-radius + 3
+        );
+        @include styleText($color-white-0, $fs-0, $fw-bold);
         &:hover {
-          background-color: rgba(207, 203, 203, 0.5);
-          color: rgba(0, 0, 0, 0.6);
+          @include styleButtonHover($color-trans, $color-red-1, $color-white-0);
         }
+        cursor: pointer;
+        transition: all 0.5s;
       }
     }
     .playBtn {

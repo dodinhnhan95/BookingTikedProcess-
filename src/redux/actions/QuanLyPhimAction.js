@@ -5,7 +5,7 @@ import Axios from "axios";
 export const layDanhSachPhimApiAction = () => {
   return (dispatch) => {
     var promise = Axios({
-      url: `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP03`,
+      url: `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01`,
       method: "GET",
     });
     promise.then((res) => {

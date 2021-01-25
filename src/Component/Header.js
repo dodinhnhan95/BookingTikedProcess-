@@ -11,15 +11,17 @@ export default function Header(props) {
     localStorage.removeItem(ACCESSTOKEN);
     setUsLogin("");
   };
-  let userLogin = "";
+  let userLogin = useSelector(
+    (state) => state.QuanLyNguoiDungReducer.userLogin
+  );
+  // let userLogin = "";
   const [usLogin, setUsLogin] = useState(userLogin);
+
   useEffect(async () => {
-    setUsLogin(usLogin);
+    await setUsLogin(usLogin);
   }, [userLogin]);
-  userLogin = useSelector((state) => state.QuanLyNguoiDungReducer.userLogin);
 
   console.log("userLogin", userLogin);
-
   console.log(usLogin);
 
   // window.addEventListener("scroll", () => {

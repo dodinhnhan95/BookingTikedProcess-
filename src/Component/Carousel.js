@@ -69,7 +69,7 @@ export default function Carousel(props) {
             },
           }}
         >
-          {phimList?.slice(0, 8).map((phim, index) => {
+          {phimList?.slice(0, 10).map((phim, index) => {
             return (
               <>
                 <SwiperSlide key={index} className="SwiperWrap">

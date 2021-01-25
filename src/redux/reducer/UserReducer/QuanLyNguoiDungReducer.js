@@ -29,6 +29,9 @@ export const QuanLyNguoiDungReducer = (state = stateDefault, action) => {
       state.userInfo = action.userInfo;
       return { ...state };
     }
+    case "XOA_TT_USER": {
+      state.userLogin = "";
+    }
     default:
       return { ...state };
   }
