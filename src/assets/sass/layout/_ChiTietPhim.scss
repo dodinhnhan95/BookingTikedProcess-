@@ -36,3 +36,21 @@
   border-radius: 10px;
   overflow: scroll;
 }
+.gioChieuPhim {
+  color: white;
+  font-weight: 700;
+  float: left;
+  font-size: 18px;
+  margin: 0 10px 10px 0;
+  padding: 12px;
+  transition: all 0.2s;
+  display: block;
+  text-align: center;
+  background-color: rgba(246, 246, 246, 0.144);
+  border-radius: 7px;
+  border: 1px solid #e4e4e4;
+  letter-spacing: -0.12px;
+  &:hover {
+    color: rgb(39, 216, 16);
+  }
+}

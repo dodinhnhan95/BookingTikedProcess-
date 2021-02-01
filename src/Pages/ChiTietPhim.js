@@ -57,14 +57,14 @@ export default function ChiTietPhim(props) {
               </div>
             </div>
 
-            <div className="row mt-5 thongTinLichChieu">
+            <div id="thongTinLichChieu" className="row mt-5 thongTinLichChieu">
               <div className="col-12 ">
-                <h1
-                  id="thongTinLichChieu"
+                <p
+                  style={{ fontSize: 35 }}
                   className="text-center text-white pt-2"
                 >
                   THÔNG TIN LỊCH CHIẾU
-                </h1>
+                </p>
                 <div className="row">
                   <div
                     className="nav flex-column nav-pills col-4"
@@ -132,11 +132,13 @@ export default function ChiTietPhim(props) {
                                             lichChieu.maLichChieu
                                           }
                                           key={index}
-                                          className="col-2"
+                                          className="gioChieuPhim"
                                         >
-                                          {moment(
-                                            lichChieu.ngayChieuGioChieu
-                                          ).format("hh:mm A")}
+                                          <a className="">
+                                            {moment(
+                                              lichChieu.ngayChieuGioChieu
+                                            ).format("hh:mm A")}
+                                          </a>
                                         </NavLink>
                                       );
                                     })}

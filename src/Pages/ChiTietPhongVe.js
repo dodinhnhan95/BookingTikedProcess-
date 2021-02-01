@@ -6,6 +6,8 @@ import {
   datVeApiAction,
 } from "../redux/actions/QuanLyPhimAction";
 import { USER_LOGIN } from "../redux/consts/Config";
+import Footer from "../Component/Footer";
+
 export default function PhongVe(props) {
   const thongTinPhongVe = useSelector(
     (state) => state.QuanLyPhimReducer.thongTinPhongVe
@@ -26,7 +28,10 @@ export default function PhongVe(props) {
     dispatch(await layThongTinPhongVeApiAction(maLichChieu));
   }, []);
   return (
-    <div className="container-fluid">
+    <div
+      className="chiTietPhongVe container-fluid mb-5"
+      style={{ marginTop: 60 }}
+    >
       <div className="row">
         <div className="col-8 text-center">
           {/* thông tin phòng vé */}
@@ -73,7 +78,7 @@ export default function PhongVe(props) {
         </div>
         <div className="col-4">
           {/* thông tin phim */}
-          <div className="display-4 text-center">
+          <div style={{ color: "green" }} className="display-4 text-center">
             {danhSachGheDangDat
               .reduce((tongTien, gheDangDat, index) => {
                 return (tongTien += gheDangDat.giaVe);
@@ -85,16 +90,23 @@ export default function PhongVe(props) {
             <img
               src={thongTinPhongVe.thongTinPhim?.hinhAnh}
               alt={thongTinPhongVe.thongTinPhim?.hinhAnh}
-              style={{ width: 200, height: 200 }}
+              style={{
+                width: 200,
+                height: 200,
+                marginBottom: 10,
+                borderRadius: 5,
+              }}
             />
           </div>
-          <h1>{thongTinPhongVe.thongTinPhim?.tenPhim}</h1>
+          <h1 style={{ color: "green" }} className="text-left">
+            {thongTinPhongVe.thongTinPhim?.tenPhim}
+          </h1>
           <p>
-            {thongTinPhongVe.thongTinPhim?.tenCumRap} -
+            {thongTinPhongVe.thongTinPhim?.tenCumRap} -{" "}
             {thongTinPhongVe.thongTinPhim?.tenRap}
           </p>
           <p>
-            {thongTinPhongVe.thongTinPhim?.ngayChieu} -
+            {thongTinPhongVe.thongTinPhim?.ngayChieu} -{" "}
             {thongTinPhongVe.thongTinPhim?.gioChieu}
           </p>
           <hr />
@@ -109,10 +121,10 @@ export default function PhongVe(props) {
               );
             })}
           </div>
-           <hr />
+          <hr />
           <button
-            className="btn btn-success w-100 p-5"
-            style={{ fontSize: 30 }}
+            className="btn btn-success w-100 p-3"
+            style={{ fontSize: 30, fontWeight: "bold", borderRadius: 10 }}
             onClick={() => {
               if (localStorage.getItem(USER_LOGIN)) {
                 let usLogin = JSON.parse(localStorage.getItem(USER_LOGIN));
@@ -132,6 +144,7 @@ export default function PhongVe(props) {
           </button>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

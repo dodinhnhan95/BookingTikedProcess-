@@ -7,6 +7,7 @@ import DangNhap from "./Pages/DangNhap";
 import ChiTietPhim from "./Pages/ChiTietPhim";
 import ChiTietPhongVe from "./Pages/ChiTietPhongVe";
 import { HomeTemplate } from "./Templates/HomeTemplate";
+import { HomeTemplate1 } from "./Templates/HomeTemplate1";
 
 import { UserTemplate } from "./Templates/UserTemplate";
 import { ManagerAccountTemplate } from "./Templates/ManagerAccountTemplate";
@@ -27,7 +28,7 @@ function App() {
     <Switch>
       <HomeTemplate exact path="/trangchu" Component={TrangChu} />
       <HomeTemplate exact path="/chitietphim/:maPhim" Component={ChiTietPhim} />
-      <HomeTemplate
+      <HomeTemplate1
         exact
         path="/chitietphongve/:maLichChieu"
         Component={ChiTietPhongVe}
