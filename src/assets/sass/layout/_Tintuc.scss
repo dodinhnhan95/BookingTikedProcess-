@@ -1,38 +1,106 @@
-.Tintuc {
-    font-family: sans-serif;
-    width: 70%;
+.news-block {
+  margin: 0 auto;
+  width: 80%;
+  height: 100%;
+  margin-bottom: 50px;
+  h1 {
+    text-align: center;
+    margin: 20px 0;
+    color: #fa5238;
+  }
+  .wrap-news {
+    text-align: center;
+    .news {
+      padding: 30px 0;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 5px;
+      .news-img {
+        flex-basis: 50%;
+        img {
+          width: 100%;
+        }
+      }
+      .news-content-one {
+        flex-basis: 50%;
+        text-align: right;
+      }
+    }
+    .btn-xem {
+      margin-top: 5px;
+      padding: 8px 15px;
+      font-size: 15px;
+      border-radius: 5px;
+      border: 1px solid #4f4f4f;
+      background: none;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      font-weight: 400;
+      color: $color-gray-4;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      &:hover {
+        background: #fa5238;
+        color: #fff;
+      }
+    }
+  }
 }
 
-.tieuDeTT {
-    font-weight: bolder;
+.news-block {
+  .wrap-news {
+    .news-two {
+      display: flex;
+      flex-direction: row-reverse;
+      .news-content-two {
+        flex-basis: 50%;
+        text-align: left;
+      }
+    }
+  }
 }
-.tinTucItem {
-    text-align: left;
-    display: block;
-    padding: 4px 4px;
+
+.news-block {
+  .wrap-news {
+    .news-content {
+      color: #000;
+      padding: 0 5px;
+      h4 {
+        font-size: 1.5em;
+        font-weight: 600;
+        padding-bottom: 10px;
+      }
+      p {
+        letter-spacing: 0.5px;
+        font-size: 1.2em;
+      }
+      a {
+        cursor: pointer;
+        transition: all 0.5 ease-in-out;
+        &:hover {
+          color: #fa5238;
+        }
+      }
+    }
+  }
 }
-.imgItem {
-    width: 100%;
-}
-.noiDungTin {
-    font-size: 13px;
-    font-weight: lighter;
-    color: rgb(88, 88, 88);
-}
-.tinNho {
-    margin-bottom: 10px;
-}
-.imgItem2 {
-    width: 100%;
-    // padding-bottom: 15px;
-    height: 100%;
-    border-radius: 4px;
-}
-.noiDungTin2 {
-    font-size: 14px;
-    color: rgb(24, 23, 23);
-}
-.noiDungTin2:hover {
-    color: rgb(241, 60, 4);
-    transition: all 0.5s;
+
+@media screen and (max-width: 768px) {
+  .news-block {
+    .wrap-news {
+      .news {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        margin-bottom: 30px;
+        .news-img {
+          margin-bottom: 5px;
+        }
+        .news-content {
+          text-align: justify;
+        }
+      }
+    }
+  }
 }

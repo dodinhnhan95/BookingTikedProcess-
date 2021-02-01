@@ -1,4 +1,4 @@
-const { USER_LOGIN } = require("../consts/Config");
+const { USER_LOGIN } = require("../../consts/Config");
 let usLogin = {};
 
 if (localStorage.getItem(USER_LOGIN)) {
@@ -28,6 +28,9 @@ export const QuanLyNguoiDungReducer = (state = stateDefault, action) => {
     case "LAY_TT_TAI_KHOAN": {
       state.userInfo = action.userInfo;
       return { ...state };
+    }
+    case "XOA_TT_USER": {
+      state.userLogin = "";
     }
     default:
       return { ...state };

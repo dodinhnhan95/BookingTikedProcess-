@@ -3,6 +3,7 @@ import { dangkyAction } from "../redux/actions/QuanLyNguoiDungAction";
 import { useDispatch } from "react-redux";
 import * as yup from "yup";
 import Swal from "sweetalert2";
+import { NavLink } from "react-router-dom";
 
 export default function DangKy(props) {
   const dispatch = useDispatch();
@@ -129,6 +130,9 @@ export default function DangKy(props) {
             Đăng Ký
           </button>
         </div>
+        <NavLink to="/trangchu">
+          <button className="btn btn-danger">Hủy</button>
+        </NavLink>
       </form>
     </div>
   );

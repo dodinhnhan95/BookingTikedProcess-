@@ -15,23 +15,29 @@ import SwiperCore, {
   Controller,
 } from "swiper";
 import "react-animated-slider/build/horizontal.css";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import "./Carousel.css";
+import { layDanhSachPhimApiAction } from "../redux/actions/QuanLyPhimAction";
 
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 export default function Carousel(props) {
-  const slides = useSelector((state) => state.QuanLyPhimReducer.slides);
   const phimList = useSelector((state) => state.QuanLyPhimReducer.dsPhim);
-  const index = 0;
+  const [ds, setds] = useState(phimList);
+  useEffect(async () => {
+    dispatch(await layDanhSachPhimApiAction());
+  }, [ds]);
 
-  const handlePlay = (phim, index) => {
+  const dispatch = useDispatch();
+  const handlePlay = (index) => {
     let popup = document.getElementById(index);
     popup.classList.toggle("show");
   };
   return (
     <div className="slider-box">
-      <Swiper>
+      <Swiper key={0} className="Swiper1">
         <Swiper
+          key={1}
+          className="Swiper2"
           slidesPerView={4}
           spaceBetween={30}
           slidesPerGroup={4}
@@ -63,32 +69,31 @@ export default function Carousel(props) {
             },
           }}
         >
-          {phimList.map((phim, index) => {
+          {phimList?.slice(0, 10).map((phim, index) => {
             return (
               <>
-                <SwiperSlide>
-                  <div className="cardItems" key={index}>
+                <SwiperSlide key={index} className="SwiperWrap">
+                  <div className="cardItems">
                     <img
                       className="hinhPhim card-img-top"
-                      src={phim.hinhAnh}
-                      alt={phim.hinhAnh}
+                      src={phim?.hinhAnh}
+                      alt={phim?.hinhAnh}
                       onError={(e) => {
                         e.target.onError = null;
                         e.target.src = "http://picsum.photos/300/300";
                       }}
                     />
-
                     <div className="cardPhim">
                       <div>
-                        <h4 className="card-title itemName">{phim.tenPhim}</h4>
+                        <h4 className="card-title itemName">{phim?.tenPhim}</h4>
                       </div>
                     </div>
-                    <div className="popup" key={index}>
+                    <div className="popup">
                       <img
-                        key={index}
                         className="playBtn"
+                        alt="play"
                         src="/img/btnPlay.png"
-                        onClick={() => handlePlay(phim, index)}
+                        onClick={() => handlePlay(index)}
                       />
                       <span className="btnDatVe">
                         <p>ĐẶT VÉ</p>
@@ -96,21 +101,20 @@ export default function Carousel(props) {
                     </div>
                   </div>
                 </SwiperSlide>
-
-                <div className="trailer-wrapper" id={index}>
+                <div className="trailer-wrapper" key={phim?.tenPhim} id={index}>
                   <iframe
                     className="popuptext"
-                    src={phim.trailer}
+                    src={phim?.trailer}
                     width="900"
                     height="450"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                  ></iframe>
+                    frameBorder="0"
+                    allow="accelerometer;  clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
                   <i
                     id={index}
-                    class="fa fa-times btnClose"
-                    onClick={() => handlePlay(phim, index)}
+                    className="fa fa-times btnClose"
+                    onClick={() => handlePlay(index)}
                   />
                 </div>
               </>
