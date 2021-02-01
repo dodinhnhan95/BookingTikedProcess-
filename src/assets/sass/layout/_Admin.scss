@@ -1,0 +1,203 @@
+.admin_logo {
+  text-align: center;
+
+  img {
+    margin-bottom: 10%;
+  }
+
+  .admin_text {
+    margin-bottom: 10%;
+  }
+}
+.ant-layout-sider-trigger {
+  position: absolute !important;
+}
+//// Page Danh Sách Người Dùng
+table {
+  table-layout: fixed !important;
+  width: 100%;
+}
+.btnEdit {
+  padding: 5px 25px;
+  margin: 4px 5px;
+  border: 1px solid #28a745;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+  background-color: #28a745;
+  color: #fff;
+
+  &:hover {
+    background-color: #fff;
+    color: #28a745;
+  }
+}
+.btnDelete {
+  padding: 5px 25px;
+  margin: 0 5px;
+  background-color: #dc3545;
+  border: 1px solid #dc3545;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: #fff;
+    color: #dc3545;
+  }
+}
+//// ------------Fucntion chinh sủa thông tin người dùng ---------
+h1 {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.container-form {
+  width: 960px;
+  margin: 0 auto;
+  display: flex;
+  // flex-direction: row;
+  justify-content: space-around;
+  // flex-wrap: wrap;
+
+  .thongTin {
+    width: 45%;
+
+    .form-group {
+      p {
+        margin-bottom: 2px;
+      }
+
+      input {
+        width: 100%;
+        margin-bottom: 15px;
+        padding: 5px 5px;
+        border-radius: 5px;
+        border: none;
+      }
+
+      input[type="date"] {
+        width: 33%;
+      }
+
+      textarea {
+        width: 100%;
+        height: 100px;
+        margin-bottom: 15px;
+        padding: 2px 5px;
+        border-radius: 5px;
+        border: none;
+      }
+    }
+
+    .text-error {
+      color: red;
+    }
+  }
+  .chucNang {
+    // display: flex;
+    justify-content: space-around;
+    .cancel {
+      padding: 5px 5px;
+      height: 3rem;
+      width: 100%;
+      border: 1px solid #e9e4e4;
+      background-color: rgb(243, 34, 34);
+      font-weight: bold;
+      color: white;
+      border-radius: 4px;
+      transition: all 0.5s;
+      &:hover {
+        border: 1px solid #080808;
+        background-color: rgb(241, 237, 237);
+        font-weight: bold;
+        color: rgb(247, 17, 17);
+      }
+    }
+    .update {
+      cursor: pointer;
+      padding: 5px 5px;
+      height: 3rem;
+      width: 100%;
+      border: 1px solid #e9e4e4;
+      background-color: rgb(33, 48, 252);
+      font-weight: bold;
+      color: white;
+      border-radius: 4px;
+      transition: all 0.5s;
+      &:hover {
+        border: 1px solid #080808;
+        background-color: rgb(241, 237, 237);
+        font-weight: bold;
+        color: rgb(33, 48, 252);
+      }
+    }
+  }
+}
+
+////// EDIT PHIM
+.cancel {
+  width: 50%;
+  height: 3rem;
+  padding: 5px 0;
+  border-radius: 5px;
+  background-color: rgb(255, 34, 34);
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: #fff;
+    color: rgb(255, 34, 34);
+    border: 1px solid rgb(255, 34, 34);
+  }
+}
+.update {
+  cursor: pointer;
+  padding: 5px 5px;
+  height: 3rem;
+  width: 50%;
+  border: 1px solid #e9e4e4;
+  background-color: rgb(33, 48, 252);
+  font-weight: bold;
+  color: white;
+  border-radius: 4px;
+  transition: all 0.5s;
+  &:hover {
+    border: 1px solid #080808;
+    background-color: rgb(241, 237, 237);
+    font-weight: bold;
+    color: rgb(33, 48, 252);
+  }
+}
+#form-edit {
+  width: 100%;
+  // display: block;
+  .thongTin {
+    // display: flex;
+  }
+}
+.themPhimbtn {
+  cursor: pointer;
+  padding: 5px 5px;
+  height: 3rem;
+  width: 30%;
+  border: 1px solid #e9e4e4;
+  background-color: rgb(33, 48, 252);
+  font-weight: bold;
+  color: white;
+  border-radius: 4px;
+  transition: all 0.5s;
+  &:hover {
+    border: 1px solid #080808;
+    background-color: rgb(241, 237, 237);
+    font-weight: bold;
+    color: rgb(33, 48, 252);
+  }
+}

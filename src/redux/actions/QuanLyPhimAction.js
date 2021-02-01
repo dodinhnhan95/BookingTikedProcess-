@@ -73,7 +73,7 @@ export const layThongTinListRap = (TTCacRap) => {
 export const layThongTinLichChieu = (maHeThongRap) => {
   return (dispatch) => {
     var promise = Axios({
-      url: `https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${maHeThongRap}&maNhom=GP01`,
+      url: `https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${maHeThongRap}&maNhom=GP03`,
       method: "GET",
     });
     promise.then((res) => {

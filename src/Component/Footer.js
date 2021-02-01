@@ -36,20 +36,36 @@ export default function Footer() {
               <div className="col-sm-3 col-xs-3 noPaddingLeft fontSizeP hideOnMobile">
                 <ul>
                   <li>
-                    <img className="itemPic" src="/img/tonghop/bhd.png" />
+                    <img
+                      className="itemPic"
+                      src="/img/tonghop/bhd.png"
+                      alt="123"
+                    />
                   </li>
                   <li>
-                    <img className="itemPic" src="/img/tonghop/cgv.png" />
+                    <img
+                      className="itemPic"
+                      src="/img/tonghop/cgv.png"
+                      alt="123"
+                    />
                   </li>
                 </ul>
               </div>
               <div className="col-sm-3 col-xs-3 noPaddingLeft fontSizeP hideOnMobile">
                 <ul>
                   <li>
-                    <img className="itemPic" src="/img/tonghop/cnx.jpg" />
+                    <img
+                      className="itemPic"
+                      src="/img/tonghop/cnx.jpg"
+                      alt="123"
+                    />
                   </li>
                   <li>
-                    <img className="itemPic" src="/img/tonghop/dcine.png" />
+                    <img
+                      className="itemPic"
+                      src="/img/tonghop/dcine.png"
+                      alt="123"
+                    />
                   </li>
                 </ul>
               </div>
@@ -58,22 +74,35 @@ export default function Footer() {
               <div className="col-sm-3 col-xs-3 noPaddingLeft fontSizeP hideOnMobile">
                 <ul>
                   <li>
-                    <img className="itemPic" src="/img/tonghop/IVB.png" />
+                    <img
+                      className="itemPic"
+                      src="/img/tonghop/IVB.png"
+                      alt="123"
+                    />
                   </li>
                   <li>
-                    <img className="itemPic" src="/img/tonghop/payoo.jpg" />
+                    <img
+                      className="itemPic"
+                      src="/img/tonghop/payoo.jpg"
+                      alt="123"
+                    />
                   </li>
                 </ul>
               </div>
               <div className="col-sm-3 col-xs-3 noPaddingLeft fontSizeP hideOnMobile">
                 <ul>
                   <li>
-                    <img className="itemPic" src="/img/tonghop/VCB.png" />
+                    <img
+                      className="itemPic"
+                      src="/img/tonghop/VCB.png"
+                      alt="123"
+                    />
                   </li>
                   <li>
                     <img
                       className="itemPic"
                       src="/img/tonghop/VIETTINBANK.png"
+                      alt="123"
                     />
                   </li>
                 </ul>
@@ -87,10 +116,18 @@ export default function Footer() {
                 <ul>
                   <li>
                     <a href="#" className="mr-2">
-                      <img className="itemPic" src="/img/tonghop/android.png" />{" "}
+                      <img
+                        className="itemPic"
+                        src="/img/tonghop/android.png"
+                        alt="123"
+                      />{" "}
                     </a>
                     <a href="#">
-                      <img className="itemPic" src="/img/tonghop/apple.png" />{" "}
+                      <img
+                        className="itemPic"
+                        src="/img/tonghop/apple.png"
+                        alt="123"
+                      />{" "}
                     </a>
                   </li>
                 </ul>
@@ -100,12 +137,17 @@ export default function Footer() {
                 <ul>
                   <li>
                     <a href="#" className="mr-2">
-                      <img className="itemPic" src="/img/tonghop/fb_logo.png" />{" "}
+                      <img
+                        className="itemPic"
+                        src="/img/tonghop/fb_logo.png"
+                        alt="123"
+                      />{" "}
                     </a>
                     <a href="#">
                       <img
                         className="itemPic"
                         src="/img/tonghop/zalo-logo.png"
+                        alt="123"
                       />{" "}
                     </a>
                   </li>
@@ -119,25 +161,25 @@ export default function Footer() {
         <div className="row">
           <div className="col-2 col-sm-2 col-xs-2 noPaddingLeft fontSizeP hideOnMobile text-center">
             <a href="#">
-              <img className="itemFinal" src="/img/logoCyber.png" />
+              <img className="itemFinal" src="/img/logoCyber.png" alt="123" />
             </a>
           </div>
           <div className="col-8 col-sm-8 col-xs-6 noPaddingLeft fontSizeP hideOnMobile text-left text-white pt-2 inforCompany">
             <span className="col-8 col-sm-8 col-xs-6 noPaddingLeft fontSizeP hideOnMobile ">
               CYBER FILM – SẢN PHẨM CỦA CÔNG TY CỔ PHẦN CYBERSOFT
             </span>
-            <p className="col-8 col-sm-8 col-xs-6 noPaddingLeft fontSizeP hideOnMobile ">
+            <div className="col-8 col-sm-8 col-xs-6 noPaddingLeft fontSizeP hideOnMobile ">
               Địa chỉ: Z06 Đường số 13, Phường Tân Thuận Đông, Quận 7, Tp. Hồ
               Chí Minh, Việt Nam. Giấy chứng nhận đăng ký kinh doanh số:
               0101*****, đăng ký thay đổi lần thứ 30, ngày 22 tháng 01 năm 2020
               do Sở kế hoạch và đầu tư Thành phố Hồ Chí Minh cấp. Số Điện Thoại
               (Hotline): 1900 545 436
               <p>Email: info@cybersoft.edu.vn</p>
-            </p>
+            </div>
           </div>
           <div className="col-2 col-sm-2 col-xs-2 noPaddingLeft fontSizeP hideOnMobile text-center">
             <a href="#">
-              <img className="itemFinal" src="/img/daThongBao.png" />
+              <img className="itemFinal" src="/img/daThongBao.png" alt="123" />
             </a>
           </div>
         </div>

@@ -42,7 +42,7 @@ export default function Caroulsel2(props) {
             }}
             pagination={{ clickable: true }}
           >
-            {slides.map((slide, index) => {
+            {slides?.map((slide, index) => {
               return (
                 <SwiperSlide key={index} className="childItem">
                   <div className="text-center itemsBanner ">
@@ -58,7 +58,6 @@ export default function Caroulsel2(props) {
           </Swiper>
         </div>
       </div>
-
       <div className="swiper-pagination"></div>
     </Swiper>
   );
