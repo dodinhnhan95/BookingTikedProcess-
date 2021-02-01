@@ -65,18 +65,18 @@ export default function Header(props) {
         >
           <ul className="navbar-nav " id="thanhTacVu">
             <li className="nav-item ">
-              <NavLink className="nav-link" to="/trangchu">
+              <a className="nav-link" href="#cumrap">
                 <h3 className="deMuc"> CỤM RẠP</h3>
                 <span className="sr-only">(current)</span>
-              </NavLink>
+              </a>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link " to="/tintuc">
+              <a className="nav-link " href="#tintuc">
                 <h3 className="deMuc"> TIN TỨC </h3>
-              </NavLink>
+              </a>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link " to="/lienhe">
+              <NavLink className="nav-link " to="/trangchu">
                 <h3 className="deMuc">LIÊN HỆ </h3>
               </NavLink>
             </li>
