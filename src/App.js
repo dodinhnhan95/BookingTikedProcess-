@@ -26,7 +26,7 @@ import ThemXoaPhim from "./Pages/Admin/QuanLyPhim/ThemXoaPhim";
 function App() {
   return (
     <Switch>
-      <HomeTemplate exact path="/trangchu" Component={TrangChu} />
+      <HomeTemplate exact path="/" Component={TrangChu} />
       <HomeTemplate exact path="/chitietphim/:maPhim" Component={ChiTietPhim} />
       <HomeTemplate1
         exact

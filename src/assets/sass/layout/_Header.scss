@@ -47,11 +47,14 @@
       border-radius: 25px;
     }
     &:hover {
+      color: black;
       &::before {
         background: linear-gradient(to right, #fbbd61, #ec7532);
         box-shadow: 0px 3px 20px 0px black;
         transform: scale(1.2);
       }
+    }
+    &:hover .deMuc {
       color: black;
     }
   }

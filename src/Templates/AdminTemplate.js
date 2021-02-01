@@ -38,7 +38,7 @@ export const AdminTemplate = (props) => {
           dispatch({
             type: "XOA_TT_USER",
           });
-          history.push("/trangchu");
+          history.push("/");
         };
         return (
           <>

@@ -35,7 +35,7 @@ export const ManagerAccountTemplate = (props) => {
       render={(propsRoute) => {
         const handleLogout = () => {
           console.log("log out");
-          history.push("/trangchu");
+          history.push("/");
         };
         return (
           <>

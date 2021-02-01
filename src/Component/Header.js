@@ -53,7 +53,7 @@ export default function Header(props) {
   return (
     <nav id="navbar">
       <div className="item_navBar">
-        <NavLink className="mr-100 tenHang " to="/trangchu">
+        <NavLink className="mr-100 tenHang " to="/">
           <h1 className="tenHangPhim">CYBER FILM</h1>
         </NavLink>
       </div>
@@ -76,7 +76,7 @@ export default function Header(props) {
               </a>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link " to="/trangchu">
+              <NavLink className="nav-link " to="/">
                 <h3 className="deMuc">LIÊN HỆ </h3>
               </NavLink>
             </li>
@@ -95,7 +95,7 @@ export default function Header(props) {
                     />
                   </span>{" "}
                   <NavLink
-                    to="/trangchu"
+                    to="/"
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >

@@ -130,7 +130,7 @@ export default function DangKy(props) {
             Đăng Ký
           </button>
         </div>
-        <NavLink to="/trangchu">
+        <NavLink to="/">
           <button className="btn btn-danger">Hủy</button>
         </NavLink>
       </form>

@@ -23,7 +23,7 @@ export const dangNhapAction = (userLogin) => {
       if (result.data.maLoaiNguoiDung === "QuanTri") {
         history.push("/admin/quanlyphim");
       } else {
-        history.push("/trangchu");
+        history.push("/");
       }
       swal.fire("Thông Báo", "đăng nhập thành công", "success");
     });
