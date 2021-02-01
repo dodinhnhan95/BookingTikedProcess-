@@ -1,54 +1,54 @@
 .footerComponent {
-    background-color: rgb(48, 47, 47);
+  background-color: rgb(48, 47, 47);
 }
 .doRong {
-    width: 80%;
+  width: 80%;
 }
 .itemFooter {
-    font-size: 12px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    color: rgb(133, 129, 129);
-    li {
-        list-style: none;
-    }
+  font-size: 12px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  color: rgb(133, 129, 129);
+  li {
+    list-style: none;
+  }
 }
 .itemP {
-    a {
-        text-decoration: none;
-        color: rgb(133, 129, 129);
-        padding-bottom: 5px;
-        cursor: pointer;
-        &:hover {
-            color: white;
-            transition: all 0.5s;
-        }
+  a {
+    text-decoration: none;
+    color: rgb(133, 129, 129);
+    padding-bottom: 5px;
+    cursor: pointer;
+    &:hover {
+      color: white;
+      transition: all 0.5s;
     }
+  }
 }
 .itemPic {
-    text-decoration: none;
+  text-decoration: none;
 
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-    margin-bottom: 10px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  margin-bottom: 10px;
 }
 .footerInfor {
-    margin: 0 auto;
-    width: 80%;
-    border-top: 0.1px solid white;
+  margin: 0 auto;
+  width: 80%;
+  border-top: 0.1px solid white;
 }
 .itemFinal {
-    border-radius: 4px;
-    margin: 10px;
-    width: 60px;
+  border-radius: 4px;
+  margin: 10px;
+  width: 60px;
 }
 .inforCompany {
-    span {
-        font-size: 15px;
-    }
-    p {
-        font-size: 10px;
-        color: rgb(133, 129, 129);
-    }
+  span {
+    font-size: 15px;
+  }
+  div {
+    font-size: 10px;
+    color: rgb(133, 129, 129);
+  }
 }

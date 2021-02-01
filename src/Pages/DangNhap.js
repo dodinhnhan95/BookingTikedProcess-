@@ -61,14 +61,15 @@ export default function DangNhap(props) {
         <div className="text-left">
           <p>Đăng nhập bằng </p>
           <>
-            <a href="#" className="mr-2">
+            <div href="#" className="mr-2">
               <img className="itemDangNhap" src="/img/tonghop/fb_logo.png" />{" "}
-            </a>
-            <a href="#">
               <img className="itemDangNhap" src="/img/tonghop/zalo-logo.png" />{" "}
-            </a>
+            </div>
           </>
         </div>
+        <NavLink to="/">
+          <button className="btn btn-danger">Hủy</button>
+        </NavLink>
       </form>
     </div>
   );

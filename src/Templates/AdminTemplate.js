@@ -1,40 +1,43 @@
-import React, { useState } from "react";
-import { Route, NavLink } from "react-router-dom";
+import { NavLink, Route } from "react-router-dom";
 import "antd/dist/antd.css";
-import { Layout, Menu, Breadcrumb } from "antd";
+import { Layout, Menu } from "antd";
 import {
   LogoutOutlined,
-  DesktopOutlined,
-  PieChartOutlined,
-  FileOutlined,
   TeamOutlined,
   UserOutlined,
+  MenuOutlined,
 } from "@ant-design/icons";
-import Caroulsel2 from "../Component/Caroulsel2";
-import { useSelector } from "react-redux";
-import { ACCESSTOKEN, USER_LOGIN } from "../redux/consts/Config";
+import { useState } from "react";
+
 import { history } from "../Util/history";
-const { Header, Content, Footer, Sider } = Layout;
+import { USER_LOGIN, ACCESSTOKEN } from "../redux/consts/Config";
+import { useDispatch } from "react-redux";
+
+const { Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
-export const ManagerAccountTemplate = (props) => {
-  let userLogin = useSelector(
-    (state) => state.QuanLyNguoiDungReducer.userLogin
-  );
+
+export const AdminTemplate = (props) => {
   const [state, setState] = useState({
     collapsed: false,
   });
+  let { Component, ...restParams } = props;
 
   const onCollapse = (collapsed) => {
+    console.log(collapsed);
     setState({ collapsed });
   };
-
-  const { Component, ...restParams } = props;
+  const dispatch = useDispatch();
   return (
     <Route
       {...restParams}
       render={(propsRoute) => {
         const handleLogout = () => {
           console.log("log out");
+          localStorage.removeItem(USER_LOGIN);
+          localStorage.removeItem(ACCESSTOKEN);
+          dispatch({
+            type: "XOA_TT_USER",
+          });
           history.push("/");
         };
         return (
@@ -47,50 +50,57 @@ export const ManagerAccountTemplate = (props) => {
               >
                 <div className="logo" />
                 <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
-                  <div className="p-5 pb-5 text-center">
+                  <div className="admin_logo">
                     <img
-                      style={{ borderRadius: "50%" }}
+                      style={{ borderRadius: "50%", marginTop: "20px" }}
                       src="https://picsum.photos/50/50"
+                      alt=""
                     />
                     {!state.collapsed ? (
                       <div
-                        className="mt-5 font-weight-bold"
-                        style={{ fontSize: "1rem", color: "green" }}
+                        className="admin_text"
+                        style={{
+                          fontSize: "1rem",
+                          color: "orange",
+                          fontWeight: "bold",
+                        }}
                       >
-                        {userLogin.taiKhoan}
+                        CyberFilm
                       </div>
                     ) : (
                       ""
                     )}
                   </div>
-
                   <SubMenu
                     key="sub1"
-                    icon={<UserOutlined />}
-                    title="Phim đã đặt"
+                    icon={<MenuOutlined />}
+                    title="Danh Mục Phim"
                   >
                     <Menu.Item key="3">
-                      <NavLink to="/quanly/quanlydatve">
-                        Danh sách các phim đã đặt{" "}
+                      <NavLink exact to="/admin/quanlyphim">
+                        Quản lý phim
                       </NavLink>
                     </Menu.Item>
-                    <Menu.Item key="4">
-                      Điểm tích lũy, chương trình khuyến mãi dành riêng
+                    <Menu.Item key="5">
+                      <NavLink exact to="/admin/themxoaphim">
+                        Thêm phim mới
+                      </NavLink>
                     </Menu.Item>
                   </SubMenu>
                   <SubMenu
                     key="sub2"
                     icon={<TeamOutlined />}
-                    title="Thông tin tài khoản"
+                    title="Danh muc nguoi dung"
                   >
                     <Menu.Item key="6">
-                      <NavLink to="/quanly/quanlythongtin">
-                        {" "}
-                        Quản Lý Tài Khoản
+                      <NavLink exact to="/admin/quanlynguoidung">
+                        Danh Sách Người dùng
                       </NavLink>
                     </Menu.Item>
-                    <Menu.Item key="7">
-                      <NavLink to="#"> Đổi mật khẩu</NavLink>
+                    <Menu.Item key="8">
+                      <NavLink exact to="/admin/themxoanguoidung">
+                        Thêm người dùng
+                      </NavLink>
                     </Menu.Item>
                   </SubMenu>
                   <Menu.Item
@@ -98,20 +108,12 @@ export const ManagerAccountTemplate = (props) => {
                     icon={<LogoutOutlined />}
                     onClick={handleLogout}
                   >
-                    Quay Về Trang Chủ
+                    Đăng Xuất
                   </Menu.Item>
                 </Menu>
               </Sider>
               <Layout className="site-layout">
-                <Header
-                  className="site-layout-background"
-                  style={{ padding: 0 }}
-                />
                 <Content style={{ margin: "0 16px" }}>
-                  <Breadcrumb style={{ margin: "16px 0" }}>
-                    <Breadcrumb.Item>User</Breadcrumb.Item>
-                    <Breadcrumb.Item>Info</Breadcrumb.Item>
-                  </Breadcrumb>
                   <div
                     className="site-layout-background"
                     style={{ padding: 24, minHeight: 360 }}
@@ -119,10 +121,13 @@ export const ManagerAccountTemplate = (props) => {
                     <Component {...propsRoute} />
                   </div>
                 </Content>
-                <Footer style={{ textAlign: "center" }}>CYBER-FILM</Footer>
+                <Footer style={{ textAlign: "center" }}>
+                  <h1 style={{ fontWeight: "bold", fontSize: "1.5rem" }}>
+                    CYBERFILM
+                  </h1>
+                </Footer>
               </Layout>
             </Layout>
-            <Footer />
           </>
         );
       }}

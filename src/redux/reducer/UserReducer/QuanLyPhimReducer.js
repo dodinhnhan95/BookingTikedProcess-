@@ -12,6 +12,9 @@ const stateDefault = {
   danhSachCumRapHeThong: [],
   listPhimCumRap: [],
   thongTinLichChieuTheoCum: [],
+  chiTietPhim: {},
+  thongTinPhongVe: {},
+  danhSachGheDangDat: [],
 };
 export const QuanLyPhimReducer = (state = stateDefault, action) => {
   switch (action.type) {
@@ -32,6 +35,31 @@ export const QuanLyPhimReducer = (state = stateDefault, action) => {
     }
     case "LAY_TT_LICH_CHIEU": {
       state.thongTinLichChieuTheoCum = action.thongTinLichChieuTheoCum;
+    }
+    case "LAY_CHI_TIET_PHIM": {
+      state.chiTietPhim = action.chiTietPhim;
+      return { ...state };
+    }
+    case "THONG_TIN_PHONG_VE": {
+      state.thongTinPhongVe = action.thongTinPhongVe;
+      return { ...state };
+    }
+    case "DAT_GHE": {
+      let mangGheDangDat = [...state.danhSachGheDangDat];
+
+      let index = mangGheDangDat.findIndex(
+        (gheDangDat) => gheDangDat.maGhe === action.gheDangDat.maGhe
+      );
+
+      if (index !== -1) {
+        mangGheDangDat.splice(index, 1);
+      } else {
+        mangGheDangDat.push(action.gheDangDat);
+      }
+      return { ...state, danhSachGheDangDat: mangGheDangDat };
+    }
+    case "DAT_VE_THANH_CONG": {
+      return { ...state, danhSachGheDangDat: [] };
     }
 
     default:
