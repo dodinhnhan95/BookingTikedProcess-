@@ -48,10 +48,14 @@ export default function TrangChu(props) {
         <div className="carousel1">
           <Carousel />
         </div>
-        <div style={{ width: "90%", margin: "0 auto" }} data-aos="fade-left">
+        <div
+          id="cumrap"
+          style={{ width: "90%", margin: "0 auto" }}
+          data-aos="fade-left"
+        >
           <ListCumRap />
         </div>
-        <div className="componentTinTuc pb-5" data-aos="fade-right">
+        <div id="tintuc" className="componentTinTuc pb-5" data-aos="fade-right">
           <Tintuc />
         </div>
         <div

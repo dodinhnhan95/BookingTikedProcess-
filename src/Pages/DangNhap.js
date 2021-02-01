@@ -67,6 +67,9 @@ export default function DangNhap(props) {
             </div>
           </>
         </div>
+        <NavLink to="/trangchu">
+          <button className="btn btn-danger">Hủy</button>
+        </NavLink>
       </form>
     </div>
   );
