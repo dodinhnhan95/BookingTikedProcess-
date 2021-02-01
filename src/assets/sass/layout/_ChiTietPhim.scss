@@ -1,0 +1,56 @@
+.styleBlur {
+  position: relative;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  justify-content: center;
+  .posterLandscapeFilm {
+    filter: blur(15px);
+    width: calc(100% + 5px);
+  }
+}
+.chiTietPhim {
+  position: absolute;
+  top: 5%;
+  left: 0;
+
+  margin-left: 0;
+  padding: 50px;
+  .noiDungChiTietPhim {
+    border-radius: 10px;
+  }
+  img {
+    border-radius: 10px;
+  }
+  .noiDungChiTietPhim1 {
+    position: absolute;
+    top: 30%;
+    left: 0;
+  }
+}
+.thongTinLichChieu {
+  background-color: rgba(255, 255, 255, 0.157);
+  width: 100%;
+  height: 500px;
+  margin: 0 auto;
+  border-radius: 10px;
+  overflow: scroll;
+}
+.gioChieuPhim {
+  color: white;
+  font-weight: 700;
+  float: left;
+  font-size: 18px;
+  margin: 0 10px 10px 0;
+  padding: 12px;
+  transition: all 0.2s;
+  display: block;
+  text-align: center;
+  background-color: rgba(246, 246, 246, 0.144);
+  border-radius: 7px;
+  border: 1px solid #e4e4e4;
+  letter-spacing: -0.12px;
+  &:hover {
+    color: rgb(39, 216, 16);
+  }
+}

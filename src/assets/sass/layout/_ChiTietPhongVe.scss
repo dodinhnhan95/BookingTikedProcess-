@@ -1,0 +1,25 @@
+.chiTietPhongVe {
+  width: max-content;
+  overflow-x: scroll;
+}
+
+.ghe {
+  width: 35px;
+  height: 35px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(116, 112, 112);
+  color: #fff;
+}
+.gheVip {
+  cursor: pointer;
+  background-color: rgb(216, 100, 6);
+}
+.gheDaDat {
+  cursor: no-drop !important;
+  background-color: rgb(34, 31, 32);
+}
+.gheDangDat {
+  background-color: rgb(57, 146, 57);
+}

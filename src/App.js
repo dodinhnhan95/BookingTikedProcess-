@@ -4,7 +4,11 @@ import { Route, Switch } from "react-router-dom";
 
 import TrangChu from "./Pages/TrangChu";
 import DangNhap from "./Pages/DangNhap";
+import ChiTietPhim from "./Pages/ChiTietPhim";
+import ChiTietPhongVe from "./Pages/ChiTietPhongVe";
 import { HomeTemplate } from "./Templates/HomeTemplate";
+import { HomeTemplate1 } from "./Templates/HomeTemplate1";
+
 import { UserTemplate } from "./Templates/UserTemplate";
 import { ManagerAccountTemplate } from "./Templates/ManagerAccountTemplate";
 import DangKy from "./Pages/DangKy";
@@ -23,6 +27,12 @@ function App() {
   return (
     <Switch>
       <HomeTemplate exact path="/trangchu" Component={TrangChu} />
+      <HomeTemplate exact path="/chitietphim/:maPhim" Component={ChiTietPhim} />
+      <HomeTemplate1
+        exact
+        path="/chitietphongve/:maLichChieu"
+        Component={ChiTietPhongVe}
+      />
       <ManagerAccountTemplate
         exact
         path="/quanly/quanlydatve"
