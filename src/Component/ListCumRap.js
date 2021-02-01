@@ -25,6 +25,7 @@ export default function ListCumRap(props) {
     return phimDangChieuTaiCumRap.danhSachPhim
       ?.slice(0, 8)
       .map((phim, index) => {
+        // console.log("phim", phim.lstLichChieuTheoPhim);
         return (
           // <div className="test-left lichChieu " key={index}>
           //   <img className="hinhPhimChieu" src={phim.hinhAnh} />
@@ -49,7 +50,9 @@ export default function ListCumRap(props) {
               <div className="wrap-info">
                 <div>
                   <span>C18</span>
-                  <h4> {phim.tenPhim}</h4>
+                  <NavLink to={"/chitietphim/" + phim.maPhim}>
+                    {phim.tenPhim}
+                  </NavLink>
                 </div>
                 <p className="ngBinding">100 phút - IMDb 7.3</p>
               </div>
@@ -57,7 +60,10 @@ export default function ListCumRap(props) {
             <div className="movie-time">
               <p>2D Digital</p>
               <a className="season">
-                <span>15:30</span>~17:30
+                <span>
+                  <NavLink to={"/chitietphim/" + phim.maPhim}>15:30</NavLink>
+                </span>
+                ~17:30
               </a>
             </div>
           </div>

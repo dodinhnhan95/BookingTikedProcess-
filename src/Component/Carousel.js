@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 // import Slider from "react-animated-slider";
 import { Swiper, SwiperSlide } from "swiper/react";
+
 import "swiper/swiper.scss";
 import "swiper/swiper.scss";
 import "swiper/components/navigation/navigation.scss";
@@ -17,6 +18,7 @@ import SwiperCore, {
 import "react-animated-slider/build/horizontal.css";
 import { useSelector, useDispatch } from "react-redux";
 import "./Carousel.css";
+import { NavLink } from "react-router-dom";
 import { layDanhSachPhimApiAction } from "../redux/actions/QuanLyPhimAction";
 
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
@@ -96,7 +98,12 @@ export default function Carousel(props) {
                         onClick={() => handlePlay(index)}
                       />
                       <span className="btnDatVe">
-                        <p>ĐẶT VÉ</p>
+                        <NavLink
+                          className=" btn font-weight-bold w-100 bg-dark text-light"
+                          to={"/chitietphim/" + phim.maPhim}
+                        >
+                          ĐẶT VÉ
+                        </NavLink>
                       </span>
                     </div>
                   </div>
