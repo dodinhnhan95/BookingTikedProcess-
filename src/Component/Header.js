@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { ACCESSTOKEN, USER_LOGIN } from "../redux/consts/Config";
 export default function Header(props) {
+  const dispatch = useDispatch();
   // const handleClick = () => {
   //   setClick(!click);
   // };
   const closeMobileMenu = () => {
     localStorage.removeItem(USER_LOGIN);
     localStorage.removeItem(ACCESSTOKEN);
+    dispatch({
+      type: "XOA_TT_USER",
+    });
     setUsLogin("");
   };
   let userLogin = useSelector(
