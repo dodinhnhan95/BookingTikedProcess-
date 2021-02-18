@@ -99,7 +99,7 @@ export default function Carousel(props) {
                       />
                       <span className="btnDatVe">
                         <NavLink
-                          className=" btn font-weight-bold w-100 bg-dark text-light"
+                          className=" btn font-weight-bold w-100 bg-dark text-light datVeBTN"
                           to={"/chitietphim/" + phim.maPhim}
                         >
                           ĐẶT VÉ

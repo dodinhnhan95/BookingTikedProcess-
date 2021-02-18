@@ -1,12 +1,13 @@
 const stateDefault = {
   dsPhim: [],
   slides: [
+    { picture: "img/carousel/Doraemon.jpg" },
     { picture: "img/carousel/AQUA.jpg" },
     { picture: "img/carousel/FL.jpg" },
     { picture: "img/carousel/GOT.jpg" },
     { picture: "img/carousel/MIB.jpg" },
     { picture: "img/carousel/TW3.jpg" },
-    { picture: "img/carousel/VAMPIRE.jpg" },
+    // { picture: "img/carousel/VAMPIRE.jpg" },
   ],
   listRap: [],
   danhSachCumRapHeThong: [],

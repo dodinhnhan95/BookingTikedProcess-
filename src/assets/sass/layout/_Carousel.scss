@@ -85,7 +85,9 @@
       font-weight: 400;
       color: white;
       text-decoration: none;
-
+      .datVeBTN {
+        background-color: $color-red-0 !important;
+      }
       p {
         background-color: red;
         width: 100%;
